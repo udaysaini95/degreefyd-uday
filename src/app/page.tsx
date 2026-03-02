@@ -1,7 +1,9 @@
-import Image from "next/image";
+import CollegeComparator from "@/components/CollegeComparator";
 
 export default function Home() {
   return (
-    <div>Degree FYD</div>
+    <main>
+      <CollegeComparator />
+    </main>
   );
 }
