@@ -146,98 +146,102 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
     const data2 = getCollegeData(college2);
 
     return (
-        <div className="w-full">
-            {/* Title — "College1 Vs College2" heading */}
-            <div className="mb-5">
-                <h2 className="text-base sm:text-xl lg:text-2xl font-extrabold text-[#1a2e4a] mb-1 leading-snug">
-                    <span>{college1.name}</span>
-                    <span className="mx-2" style={{ color: "#FF8C00" }}>Vs</span>
-                    <span>{college2.name}</span>
-                </h2>
-                <p className="text-gray-500 text-sm">
-                    Evaluate them side by side based on fees, rankings, placements, courses, and more.
-                </p>
-            </div>
-
-            {/* -------- Comparison Sections -------- */}
-
-            {/* 1. Institute Information */}
-            <ComparisonSection
-                title="Institute Information"
-                rows={Object.keys(data1.instituteInfo)}
-                data1={data1.instituteInfo}
-                data2={data2.instituteInfo}
-            />
-
-            {/* 2. Placements */}
-            <ComparisonSection
-                title="Placements"
-                rows={Object.keys(data1.placements)}
-                data1={data1.placements}
-                data2={data2.placements}
-            />
-
-            {/* 3. Top Recruiters */}
-            <RecruitersSection />
-
-            {/* 4. Rankings & Accreditations */}
-            <ComparisonSection
-                title="Rankings & Accreditations"
-                rows={Object.keys(data1.rankings)}
-                data1={data1.rankings}
-                data2={data2.rankings}
-            />
-
-            {/* 5. Fee Range */}
-            <ComparisonSection
-                title="Fee Range"
-                rows={Object.keys(data1.feeRange)}
-                data1={data1.feeRange}
-                data2={data2.feeRange}
-            />
-
-            {/* Shortlist Buttons */}
-            <div className="flex gap-3 mt-6">
-                <button
-                    className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
-                    style={{ backgroundColor: "#1a2e4a" }}
-                >
-                    Shortlist {college1.name.split(" ")[0]}
-                </button>
-                <button
-                    className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
-                    style={{ backgroundColor: "#FF8C00" }}
-                >
-                    Shortlist {college2.name.split(" ")[0]}
-                </button>
-            </div>
-
-            {/* Expert CTA Banner */}
-            <div
-                className="mt-6 rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 overflow-hidden"
-                style={{ backgroundColor: "#1a3c5e" }}
-            >
-                <div className="flex flex-col gap-3">
-                    <p className="text-white text-sm sm:text-base lg:text-lg font-bold leading-snug max-w-xs">
-                        Still not Sure about colleges?{" "}
-                        <span className="font-semibold">Let&apos;s Connect with our Experts.</span>
-                    </p>
-                    <button className="bg-white text-[#1a3c5e] font-bold px-5 py-2 rounded-lg w-fit hover:bg-gray-100 transition-colors text-sm">
-                        Connect Now
-                    </button>
-                </div>
-                <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36">
-                    <div className="relative w-full h-full">
-                        <Image
-                            src="/assets/3d.png"
-                            alt="Expert advisor"
-                            fill
-                            className="object-contain object-bottom"
-                        />
-                    </div>
-                </div>
-            </div>
-
+      <div className="w-full">
+        {/* Title — "College1 Vs College2" heading */}
+        <div className="mb-5">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-extrabold text-[#1a2e4a] mb-1 leading-snug">
+            <span>{college1.name}</span>
+            <span className="mx-2" style={{ color: "#FF8C00" }}>
+              Vs
+            </span>
+            <span>{college2.name}</span>
+          </h2>
+          <p className="text-gray-500 text-sm">
+            Evaluate them side by side based on fees, rankings, placements,
+            courses, and more.
+          </p>
         </div>
+
+        {/* -------- Comparison Sections -------- */}
+
+        {/* 1. Institute Information */}
+        <ComparisonSection
+          title="Institute Information"
+          rows={Object.keys(data1.instituteInfo)}
+          data1={data1.instituteInfo}
+          data2={data2.instituteInfo}
+        />
+
+        {/* 2. Placements */}
+        <ComparisonSection
+          title="Placements"
+          rows={Object.keys(data1.placements)}
+          data1={data1.placements}
+          data2={data2.placements}
+        />
+
+        {/* 3. Top Recruiters */}
+        <RecruitersSection />
+
+        {/* 4. Rankings & Accreditations */}
+        <ComparisonSection
+          title="Rankings & Accreditations"
+          rows={Object.keys(data1.rankings)}
+          data1={data1.rankings}
+          data2={data2.rankings}
+        />
+
+        {/* 5. Fee Range */}
+        <ComparisonSection
+          title="Fee Range"
+          rows={Object.keys(data1.feeRange)}
+          data1={data1.feeRange}
+          data2={data2.feeRange}
+        />
+
+        {/* Shortlist Buttons */}
+        <div className="flex gap-3 mt-6">
+          <button
+            className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: "#1a2e4a" }}
+          >
+            Shortlist {college1.name.split(" ")[0]}
+          </button>
+          <button
+            className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: "#FF8C00" }}
+          >
+            Shortlist {college2.name.split(" ")[0]}
+          </button>
+        </div>
+
+        {/* Expert CTA Banner */}
+        <div
+          className="mt-6 rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 overflow-hidden"
+          style={{ backgroundColor: "#254F6A" }}
+        >
+          <div className="flex flex-col gap-3">
+            <p className="text-white text-sm sm:text-base lg:text-lg font-bold leading-snug max-w-xs">
+              Still not Sure about colleges?{" "}
+              <span className="font-semibold">
+                Let&apos;s Connect with our Experts.
+              </span>
+            </p>
+            <button className="bg-white text-[#1a3c5e] font-bold px-5 py-2 rounded-lg w-fit hover:bg-gray-100 transition-colors text-sm">
+              Connect Now
+            </button>
+          </div>
+          <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36">
+            <div className="relative w-full h-full">
+              <Image
+                src="/assets/3d.png"
+                alt="Expert advisor"
+                fill
+                className="object-contain object-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     );
 }

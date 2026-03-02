@@ -121,8 +121,7 @@ const FAQ_ITEMS = [
 function ComparisonCard({ pair }: { pair: CollegePair }) {
     return (
         <div
-            className="flex-none bg-white border border-gray-100 rounded-2xl p-3 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow"
-            style={{ width: "calc(50% - 8px)" }}
+            className="flex-none bg-white border border-gray-100 rounded-2xl p-3 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-8px)]"
         >
             {/* Logos row */}
             <div className="flex items-center gap-0">
