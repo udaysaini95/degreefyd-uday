@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Types
 interface College {
     id: number;
     name: string;
@@ -17,7 +16,6 @@ interface ComparisonTableProps {
     onEdit: (slot: 1 | 2) => void;
 }
 
-// ---------- Recruiter logos — fill in src with your own logo paths ----------
 const RECRUITERS: { name: string; src: string }[] = [
     { name: "", src: "/assets/tech.png" },
     { name: "", src: "/assets/cog.png" },
@@ -27,7 +25,6 @@ const RECRUITERS: { name: string; src: string }[] = [
     { name: "", src: "/assets/cog.png" },
 ];
 
-// ---------- Comparison Data ----------
 const getCollegeData = (college: College) => ({
     instituteInfo: {
         "College Type": "Private",
@@ -48,13 +45,11 @@ const getCollegeData = (college: College) => ({
         "AICTE Approved": "Yes",
     },
     feeRange: {
-        "Total Fee (Approx.)": "₹31180 – ₹1,00,000",
+        "Total Fee (Approx.)": "₹31,180 – ₹1,00,000",
     },
 });
 
-// ---------- Sub-components ----------
 
-/** A grouping section with two value columns */
 function ComparisonSection({
     title,
     rows,
@@ -92,7 +87,6 @@ function ComparisonSection({
     );
 }
 
-/** Top Recruiters — logo images with empty src for user to fill in */
 function RecruitersSection() {
     return (
         <div className="mb-4">
@@ -116,16 +110,13 @@ function RecruitersSection() {
                                         className="flex flex-col items-center gap-1"
                                         title={r.name}
                                     >
-                                        {/* Logo tile — add your image path to src */}
                                         <div className="w-12 h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center overflow-hidden p-1 hover:shadow-sm transition-shadow">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img
                                                 src={r.src}
                                                 alt={r.name}
                                                 className="w-full h-full object-contain"
                                             />
                                         </div>
-                                        {/* Company name label */}
                                         <span className="text-[9px] text-gray-500 font-medium text-center leading-tight max-w-[48px] truncate">
                                             {r.name}
                                         </span>
@@ -140,14 +131,12 @@ function RecruitersSection() {
     );
 }
 
-// ---------- Main Component ----------
 export default function ComparisonTable({ college1, college2, onEdit }: ComparisonTableProps) {
     const data1 = getCollegeData(college1);
     const data2 = getCollegeData(college2);
 
     return (
       <div className="w-full">
-        {/* Title — "College1 Vs College2" heading */}
         <div className="mb-5">
           <h2 className="text-base sm:text-xl lg:text-2xl font-extrabold text-[#1a2e4a] mb-1 leading-snug">
             <span>{college1.name}</span>
@@ -162,9 +151,7 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           </p>
         </div>
 
-        {/* -------- Comparison Sections -------- */}
 
-        {/* 1. Institute Information */}
         <ComparisonSection
           title="Institute Information"
           rows={Object.keys(data1.instituteInfo)}
@@ -172,7 +159,6 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           data2={data2.instituteInfo}
         />
 
-        {/* 2. Placements */}
         <ComparisonSection
           title="Placements"
           rows={Object.keys(data1.placements)}
@@ -180,10 +166,8 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           data2={data2.placements}
         />
 
-        {/* 3. Top Recruiters */}
         <RecruitersSection />
 
-        {/* 4. Rankings & Accreditations */}
         <ComparisonSection
           title="Rankings & Accreditations"
           rows={Object.keys(data1.rankings)}
@@ -191,7 +175,6 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           data2={data2.rankings}
         />
 
-        {/* 5. Fee Range */}
         <ComparisonSection
           title="Fee Range"
           rows={Object.keys(data1.feeRange)}
@@ -199,7 +182,6 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           data2={data2.feeRange}
         />
 
-        {/* Shortlist Buttons */}
         <div className="flex gap-3 mt-6">
           <button
             className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
@@ -215,7 +197,6 @@ export default function ComparisonTable({ college1, college2, onEdit }: Comparis
           </button>
         </div>
 
-        {/* Expert CTA Banner */}
         <div
           className="mt-6 rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 overflow-hidden"
           style={{ backgroundColor: "#254F6A" }}

@@ -4,13 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Types
 interface CollegePair {
     college1: { name: string; location: string; logo: string };
     college2: { name: string; location: string; logo: string };
 }
 
-// Pin icon
 const PinIcon = () => (
     <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -93,7 +91,6 @@ const GROUPS: { heading: string; pairs: CollegePair[] }[] = [
     },
 ];
 
-// FAQ data
 const FAQ_ITEMS = [
     {
         q: "1. What programs does IGNOU offer?",
@@ -117,15 +114,12 @@ const FAQ_ITEMS = [
     },
 ];
 
-// ---- Single comparison card ----
 function ComparisonCard({ pair }: { pair: CollegePair }) {
     return (
         <div
             className="flex-none bg-white border border-gray-100 rounded-2xl p-3 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-8px)]"
         >
-            {/* Logos row */}
             <div className="flex items-center gap-0">
-                {/* College 1 logo */}
                 <div className="flex-1 flex items-center justify-center bg-white border border-gray-200 rounded-xl h-[100px] relative">
                     <div className="relative w-16 h-16">
                         <Image
@@ -138,7 +132,6 @@ function ComparisonCard({ pair }: { pair: CollegePair }) {
                     </div>
                 </div>
 
-                {/* Vs badge */}
                 <div className="flex-shrink-0 flex items-center justify-center w-9 z-10">
                     <div
                         className="w-7 h-7 rounded-full flex items-center justify-center shadow-sm"
@@ -148,7 +141,6 @@ function ComparisonCard({ pair }: { pair: CollegePair }) {
                     </div>
                 </div>
 
-                {/* College 2 logo */}
                 <div className="flex-1 flex items-center justify-center bg-white border border-gray-200 rounded-xl h-[100px] relative">
                     <div className="relative w-16 h-16">
                         <Image
@@ -162,9 +154,7 @@ function ComparisonCard({ pair }: { pair: CollegePair }) {
                 </div>
             </div>
 
-            {/* Names + locations row */}
             <div className="flex gap-1">
-                {/* College 1 info */}
                 <div className="flex-1 min-w-0">
                     <p
                         className="text-[#1a2e4a] font-extrabold text-[11px] leading-tight"
@@ -182,9 +172,7 @@ function ComparisonCard({ pair }: { pair: CollegePair }) {
                         <span className="text-[9px] truncate">{pair.college1.location}</span>
                     </div>
                 </div>
-                {/* Spacer matching the Vs badge width */}
                 <div className="w-9 flex-shrink-0" />
-                {/* College 2 info */}
                 <div className="flex-1 min-w-0">
                     <p
                         className="text-[#1a2e4a] font-extrabold text-[11px] leading-tight"
@@ -204,7 +192,6 @@ function ComparisonCard({ pair }: { pair: CollegePair }) {
                 </div>
             </div>
 
-            {/* Compare button — centered, not full-width */}
             <div className="flex justify-center">
                 <Link
                     href="#"
@@ -228,7 +215,6 @@ function ComparisonCarousel({ group }: { group: (typeof GROUPS)[0] }) {
             <h2 className="text-[#1a2e4a] font-extrabold text-[17px] sm:text-[19px] mb-4">
                 {group.heading}
             </h2>
-            {/* Overflow hidden wrapper — ensures only 2 cards are visible */}
             <div className="overflow-hidden">
                 <div
                     className="flex gap-4 overflow-x-auto pb-3"
@@ -239,7 +225,6 @@ function ComparisonCarousel({ group }: { group: (typeof GROUPS)[0] }) {
                     ))}
                 </div>
             </div>
-            {/* Pagination dots */}
             <div className="flex items-center justify-center gap-1.5 mt-3">
                 {group.pairs.map((_, i) => (
                     <span
@@ -253,7 +238,6 @@ function ComparisonCarousel({ group }: { group: (typeof GROUPS)[0] }) {
     );
 }
 
-// ---- FAQ Section ----
 function FAQSection() {
     const [openIndex, setOpenIndex] = useState(-1);
     const [showAll, setShowAll] = useState(false);
@@ -296,7 +280,6 @@ function FAQSection() {
                     </div>
                 ))}
             </div>
-            {/* View more button */}
             <div className="flex justify-center mt-4">
                 <button
                     onClick={() => setShowAll(!showAll)}
@@ -315,7 +298,6 @@ function FAQSection() {
     );
 }
 
-// ---- Main export ----
 export default function PopularComparisons() {
     return (
         <section className="pt-6 pb-8">

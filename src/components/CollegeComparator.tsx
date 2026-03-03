@@ -6,7 +6,6 @@ import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
 import PopularComparisons from "@/components/PopularComparisons";
 
-// Types
 interface College {
     id: number;
     name: string;
@@ -14,7 +13,6 @@ interface College {
     logo: string;
 }
 
-// Sample popular colleges for sidebar
 const popularColleges: College[] = [
     {
         id: 1,
@@ -36,7 +34,6 @@ const popularColleges: College[] = [
     },
 ];
 
-// Pin Icon
 const PinIcon = () => (
     <svg
         className="w-4 h-4 text-gray-400 flex-shrink-0"
@@ -59,7 +56,6 @@ const PinIcon = () => (
     </svg>
 );
 
-// Edit Icon
 const EditIcon = () => (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -71,7 +67,6 @@ const EditIcon = () => (
     </svg>
 );
 
-// Filled College Card
 function FilledCollegeCard({
     college,
     onEdit,
@@ -81,7 +76,6 @@ function FilledCollegeCard({
 }) {
     return (
         <div className="flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 w-full h-full">
-            {/* Logo Box — taller on desktop, visible on mobile */}
             <div className="w-full flex items-center justify-center bg-white border border-gray-200 rounded-xl p-2 sm:p-3 h-[100px] sm:h-[130px] flex-shrink-0">
                 <div className="relative w-16 h-16 sm:w-24 sm:h-24">
                     <Image
@@ -96,9 +90,7 @@ function FilledCollegeCard({
                 </div>
             </div>
 
-            {/* Middle: name + location */}
             <div className="flex flex-col items-center gap-1 sm:gap-2 flex-1 w-full">
-                {/* College Name */}
                 <h3
                     className="text-center font-bold text-[#1a2e4a] text-[12px] sm:text-[15px] leading-snug w-full"
                     style={{
@@ -111,7 +103,6 @@ function FilledCollegeCard({
                     {college.name}
                 </h3>
 
-                {/* Location */}
                 <div className="flex items-center gap-0.5 sm:gap-1">
                     <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -121,7 +112,6 @@ function FilledCollegeCard({
                 </div>
             </div>
 
-            {/* Edit Button */}
             <button
                 onClick={onEdit}
                 className="flex items-center gap-1.5 px-3 sm:px-6 py-1.5 sm:py-2 border border-[#1a2e4a] text-[#1a2e4a] rounded-md text-[11px] sm:text-sm font-medium hover:bg-[#1a2e4a] hover:text-white transition-all duration-200 w-full justify-center flex-shrink-0"
@@ -133,11 +123,9 @@ function FilledCollegeCard({
     );
 }
 
-// Empty College Card
 function EmptyCollegeCard({ onAdd }: { onAdd: () => void }) {
     return (
         <div className="flex flex-col w-full h-full p-2 sm:p-3 gap-2 sm:gap-3">
-            {/* Dashed placeholder — fixed height to match FilledCard logo box */}
             <div
                 onClick={onAdd}
                 className="w-full flex items-center justify-center rounded-xl cursor-pointer hover:bg-gray-50 transition-colors duration-200"
@@ -155,7 +143,6 @@ function EmptyCollegeCard({ onAdd }: { onAdd: () => void }) {
                 </div>
             </div>
 
-            {/* Add College Button */}
             <button
                 onClick={onAdd}
                 className="w-full py-1.5 sm:py-2.5 text-white font-semibold text-[11px] sm:text-[14px] rounded-md flex items-center justify-center gap-1 hover:opacity-90 transition-opacity duration-200 flex-shrink-0"
@@ -170,7 +157,6 @@ function EmptyCollegeCard({ onAdd }: { onAdd: () => void }) {
     );
 }
 
-// College Selection Modal
 function CollegeModal({
     onSelect,
     onClose,
@@ -201,7 +187,6 @@ function CollegeModal({
             style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
         >
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden flex flex-col">
-                {/* Header */}
                 <div className="flex items-center justify-between px-6 pt-5 pb-4">
                     <h3 className="text-[17px] font-bold text-[#1a2e4a]">Select another College</h3>
                     <button
@@ -215,7 +200,6 @@ function CollegeModal({
                     </button>
                 </div>
 
-                {/* Search */}
                 <div className="px-6 pb-3">
                     <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-2.5 bg-white focus-within:border-blue-400 transition-colors">
                         <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,7 +216,6 @@ function CollegeModal({
                     </div>
                 </div>
 
-                {/* College List */}
                 <div className="overflow-y-auto flex-1 px-4 pb-2" style={{ maxHeight: "320px" }}>
                     {filtered.map((college) => {
                         const isSelected = college.id === selectedId;
@@ -247,7 +230,6 @@ function CollegeModal({
                                     backgroundColor: isSelected ? "#f0f4ff" : "white",
                                 }}
                             >
-                                {/* Logo badge */}
                                 <div
                                     className="flex-shrink-0 flex items-center justify-center rounded-lg overflow-hidden bg-white"
                                     style={{ width: 64, height: 40, border: "1px solid #e5e7eb" }}
@@ -265,7 +247,6 @@ function CollegeModal({
                                     </div>
                                 </div>
 
-                                {/* Info */}
                                 <div className="flex-1 min-w-0">
                                     <p className="font-semibold text-[#1a2e4a] text-sm leading-snug truncate">
                                         {college.name}
@@ -286,7 +267,6 @@ function CollegeModal({
                     )}
                 </div>
 
-                {/* Add Selection Button */}
                 <div className="px-4 pb-5 pt-3">
                     <button
                         type="button"
@@ -308,7 +288,6 @@ function CollegeModal({
     );
 }
 
-// Main Exported Component
 export default function CollegeComparator() {
     const [college1, setCollege1] = useState<College | null>({
         id: 1,
@@ -332,7 +311,6 @@ export default function CollegeComparator() {
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#f4f7f9" }}>
-            {/* Modal */}
             {modalFor !== null && (
                 <CollegeModal
                     onSelect={handleSelect}
@@ -341,7 +319,6 @@ export default function CollegeComparator() {
             )}
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-6">
-                {/* Breadcrumb */}
                 <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
                     <Link href="/" className="hover:text-[#1a2e4a] transition-colors">
                         <svg
@@ -362,7 +339,6 @@ export default function CollegeComparator() {
                     <span className="text-[#1a2e4a] font-medium">Compare Colleges</span>
                 </nav>
 
-                {/* Hero Heading */}
                 <div className="mb-8">
                     <h1 className="text-3xl lg:text-4xl font-extrabold mb-3 leading-tight">
                         <span style={{ color: "#FF8C00" }}>Compare </span>
@@ -377,15 +353,10 @@ export default function CollegeComparator() {
                     </p>
                 </div>
 
-                {/* Main Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 items-start">
-                    {/* Left — Comparator */}
                     <div className="flex flex-col gap-4 min-w-0">
-                        {/* Comparison Cards Container */}
                         <div className="bg-white rounded-2xl shadow-sm p-6 lg:p-8">
-                            {/* Two Cards + Vs Badge */}
                             <div className="flex items-stretch gap-10 sm:gap-14 relative">
-                                {/* College Card 1 */}
                                 <div className="flex-1 min-w-0 border border-gray-200 rounded-xl overflow-hidden">
                                     {college1 ? (
                                         <FilledCollegeCard
@@ -397,7 +368,6 @@ export default function CollegeComparator() {
                                     )}
                                 </div>
 
-                                {/* Vs Badge — absolutely centered on the logo box */}
                                 <div
                                     className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 top-[62px] sm:top-[85px]"
                                 >
@@ -411,7 +381,6 @@ export default function CollegeComparator() {
                                     </div>
                                 </div>
 
-                                {/* College Card 2 */}
                                 <div className="flex-1 min-w-0 border border-gray-200 rounded-xl overflow-hidden">
                                     {college2 ? (
                                         <FilledCollegeCard
@@ -424,7 +393,6 @@ export default function CollegeComparator() {
                                 </div>
                             </div>
 
-                            {/* Compare Button — only shown when both selected */}
                             {bothSelected && (
                                 <div className="mt-6 flex justify-center">
                                     <button
@@ -450,7 +418,6 @@ export default function CollegeComparator() {
                                 </div>
                             )}
 
-                            {/* Comparison Table — shown below cards after clicking Compare */}
                             {showComparison && college1 && college2 && (
                                 <div className="mt-8 border-t border-gray-100 pt-6">
                                     <ComparisonTable
@@ -465,7 +432,6 @@ export default function CollegeComparator() {
                             )}
                         </div>
 
-                        {/* Expert CTA Banner — hide when comparison table is shown (it has its own CTA) */}
                         {!showComparison && (
                             <div
                                 className="rounded-2xl p-6 lg:p-8 flex items-center justify-between gap-4 overflow-hidden relative"
@@ -483,7 +449,6 @@ export default function CollegeComparator() {
                                     </button>
                                 </div>
 
-                                {/* 3D Illustration */}
                                 <div className="relative flex-shrink-0 w-36 h-32 lg:w-44 lg:h-40">
                                     <Image
                                         src="/assets/3d.png"
@@ -495,11 +460,9 @@ export default function CollegeComparator() {
                             </div>
                         )}
 
-                        {/* Popular Comparisons + FAQ — renders in left column so sidebar stays sticky */}
                         <PopularComparisons />
                     </div>
 
-                    {/* Right Sidebar — sticky, no internal scroll */}
                     <div className="w-full lg:w-[300px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">
                         <div className="bg-white rounded-2xl shadow-sm p-5">
                             <h2 className="text-[#1a2e4a] font-bold text-[17px] mb-4">
@@ -512,9 +475,7 @@ export default function CollegeComparator() {
                                         key={college.id}
                                         className="border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer"
                                     >
-                                        {/* College Image */}
                                         <div className="relative w-full h-[130px] bg-gray-100">
-                                            {/* Fallback gradient — behind the image (z-0) */}
                                             <div
                                                 className="absolute inset-0 flex items-center justify-center z-0"
                                                 style={{
@@ -526,7 +487,6 @@ export default function CollegeComparator() {
                                                     {college.name.charAt(0)}
                                                 </span>
                                             </div>
-                                            {/* Actual image — on top (z-10) */}
                                             <Image
                                                 src={college.logo}
                                                 alt={college.name}
@@ -540,7 +500,6 @@ export default function CollegeComparator() {
                                             />
                                         </div>
 
-                                        {/* College Info */}
                                         <div className="p-3">
                                             <Link
                                                 href="#"

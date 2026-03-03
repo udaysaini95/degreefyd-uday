@@ -75,13 +75,10 @@ const SOCIAL_LINKS = [
 export default function Footer() {
     return (
         <footer style={{ backgroundColor: "#051020" }}>
-            {/* Main footer content */}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-                    {/* Column 1: Brand */}
                     <div className="flex flex-col gap-5">
-                        {/* Logo */}
                         <div className="flex items-center gap-2">
                             <div className="relative w-8 h-8">
                                 <Image src="/logo.png" alt="DegreeFYD" fill className="object-contain"
@@ -95,7 +92,6 @@ export default function Footer() {
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Find and compare top online colleges in India. Make informed decisions about your education with real data.
                         </p>
-                        {/* WhatsApp */}
                         <div className="flex items-center gap-3">
                             <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
                                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -104,12 +100,11 @@ export default function Footer() {
                             </div>
                             <div>
                                 <p className="text-gray-500 text-xs">Contact Us</p>
-                                <p className="text-white text-sm font-semibold">+91 98765 43210</p>
+                                <p className="text-white text-sm font-semibold">+91 99999 99999</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Columns 2-4: Links */}
                     {(Object.keys(FOOTER_LINKS) as (keyof typeof FOOTER_LINKS)[]).map((section) => (
                         <div key={section} className="flex flex-col gap-4">
                             <h4 className="text-white font-bold text-[15px]">{section}</h4>
@@ -130,13 +125,11 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Bottom bar */}
             <div className="border-t border-white/10">
                 <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                     <p className="text-gray-500 text-sm">
                         Copyright © 2024 Degreefyd. All rights reserved.
                     </p>
-                    {/* Social icons */}
                     <div className="flex items-center gap-3">
                         {SOCIAL_LINKS.map((s) => (
                             <Link
