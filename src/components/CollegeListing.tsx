@@ -6,14 +6,15 @@ import { useState } from "react";
 
 const MOCK_COLLEGES = [
   {
-    logo: "/assets/lpu.png",
-    name: "Amity University Online",
+    logo: "/assets/rec.png",
+    name: "Alagappa University's Directorate of Distance Education",
     location: "Noida, Uttar Pradesh",
     approved: "#134 NIRF Rank",
     courses: "12",
-    rating: "4.5/5",
-    fees: "₹ 1.2 L",
-    placement: "5.4 L",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "2005",
   },
   {
     logo: "/assets/lpu.png",
@@ -21,185 +22,227 @@ const MOCK_COLLEGES = [
     location: "Mumbai, Maharashtra",
     approved: "#134 NIRF Rank",
     courses: "15",
-    rating: "4.8/5",
-    fees: "₹ 1.5 L",
-    placement: "8.2 L",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "1981",
+  },
+  {
+    logo: "/assets/rec.png",
+    name: "Alagappa University's Directorate of Distance Education",
+    location: "Noida, Uttar Pradesh",
+    approved: "#134 NIRF Rank",
+    courses: "12",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "2005",
   },
   {
     logo: "/assets/lpu.png",
-    name: "IGNOU New Delhi",
-    location: "New Delhi, Delhi NCR",
+    name: "NMIMS Distance Education",
+    location: "Mumbai, Maharashtra",
     approved: "#134 NIRF Rank",
-    courses: "40",
-    rating: "4.2/5",
-    fees: "₹ 30 K",
-    placement: "N/A",
+    courses: "15",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "1981",
+  },
+  {
+    logo: "/assets/rec.png",
+    name: "Alagappa University's Directorate of Distance Education",
+    location: "Noida, Uttar Pradesh",
+    approved: "#134 NIRF Rank",
+    courses: "12",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "2005",
   },
   {
     logo: "/assets/lpu.png",
-    name: "Chandigarh University Online",
-    location: "Chandigarh",
+    name: "NMIMS Distance Education",
+    location: "Mumbai, Maharashtra",
     approved: "#134 NIRF Rank",
-    courses: "24",
-    rating: "4.4/5",
-    fees: "₹ 1.1 L",
-    placement: "4.5 L",
+    courses: "15",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "1981",
+  },
+  {
+    logo: "/assets/rec.png",
+    name: "Alagappa University's Directorate of Distance Education",
+    location: "Noida, Uttar Pradesh",
+    approved: "#134 NIRF Rank",
+    courses: "12",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "2005",
   },
   {
     logo: "/assets/lpu.png",
-    name: "Symbiosis Centre for Distance Learning",
-    location: "Pune, Maharashtra",
+    name: "NMIMS Distance Education",
+    location: "Mumbai, Maharashtra",
     approved: "#134 NIRF Rank",
-    courses: "18",
-    rating: "4.6/5",
-    fees: "₹ 80 K",
-    placement: "6.0 L",
+    courses: "15",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "1981",
   },
-];
-
-const POPULAR_UNIVERSITIES = [
-  { name: "Amity University Online", location: "Noida, Uttar Pradesh" },
-  { name: "NMIMS Distance Education", location: "Mumbai, Maharashtra" },
-  { name: "Indira Gandhi National Open University (IGNOU)", location: "New Delhi, Delhi NCR" },
-  { name: "Chandigarh University Online", location: "Chandigarh" },
-  { name: "Symbiosis Centre for Distance Learning", location: "Pune, Maharashtra" },
-  { name: "Sikkim Manipal University", location: "Gangtok, Sikkim" },
+  {
+    logo: "/assets/rec.png",
+    name: "Alagappa University's Directorate of Distance Education",
+    location: "Noida, Uttar Pradesh",
+    approved: "#134 NIRF Rank",
+    courses: "12",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "2005",
+  },
+  {
+    logo: "/assets/lpu.png",
+    name: "NMIMS Distance Education",
+    location: "Mumbai, Maharashtra",
+    approved: "#134 NIRF Rank",
+    courses: "15",
+    award: "UGC...",
+    fees: "125000-200000",
+    placement: "25 LPA",
+    established: "1981",
+  }
 ];
 
 export default function CollegeListing() {
-  const [states] = useState(["Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Delhi NCR", "Goa"]);
-  const [degrees] = useState(["B.P.Ed", "B.A", "B.Arch", "B.A (Hons)", "B.A + B.Ed(intg)"]);
+  const [states] = useState([
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Chhattisgarh",
+    "Delhi NCR",
+    "Goa",
+  ]);
+  const [degrees] = useState([
+    "B.P.Ed",
+    "B.A",
+    "B.Arch",
+    "B.A (Hons)",
+    "B.A + B.Ed(intg)",
+  ]);
 
   return (
-    <div className="bg-[#f8f9fa] min-h-screen pb-16 pt-8">
+    <div className="bg-[#f8f9fa] min-h-screen pb-16 pt-8 font-sans">
       <div className="max-w-[1240px] mx-auto px-4 lg:px-8">
+        {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-[13px] text-gray-500 mb-3">
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            />
-          </svg>
-          <span className="cursor-pointer hover:text-blue-600">Home</span>
-          <span>&gt;</span>
+          <span>Home</span> <span>&gt;</span>{" "}
           <span className="text-gray-800">Colleges</span>
         </div>
 
+        {/* Heading */}
         <div className="mb-6">
           <h1 className="text-[26px] font-bold text-[#1a2e4a] mb-2">
             <span className="text-orange-500">Online & Distance</span> Degree
             Colleges in India-
           </h1>
-          <p className="text-[13px] text-gray-600/90 leading-relaxed max-w-5xl">
+          <p className="text-[13px] text-gray-600 leading-relaxed max-w-5xl">
             Our platform provides a comprehensive list of the best online and
-            distance learning universities and colleges offering various
-            courses. Whether you&apos;re looking for undergraduate,
-            postgraduate, diploma, or certificate programs, we have it all.
-            Navigate our platform to find your dream college with complete
-            info regarding fee structures, approvals, duration, courses
-            offered, user reviews, and top rankings. Compare your preferred
-            options to make an informed decision for a successful academic
-            career.
+            distance learning universities...
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          <div className="w-full lg:w-[260px] flex-shrink-0 flex flex-col gap-4">
-            <div className="bg-white border border-gray-200 rounded-xl p-4">
-              <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-3">
-                <h3 className="font-bold text-[14px] text-gray-800">
-                  All Filters
-                </h3>
-                <button className="text-blue-500 text-[12px] font-semibold hover:underline">
-                  Reset
-                </button>
-              </div>
+          {/* Sidebar Filters - Exact Match */}
+          <div className="w-full lg:w-[260px] flex-shrink-0 flex flex-col gap-3">
+            {/* Header Card */}
+            <div className="bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-center justify-between shadow-sm">
+              <h3 className="font-semibold text-[15px] text-[#1a2e4a]">
+                All Filters
+              </h3>
+              <button className="text-[#3B82B1] text-[13px] font-medium hover:underline">
+                Reset
+              </button>
+            </div>
 
-              <div className="mb-6 border-b border-gray-100 pb-5">
-                <h4 className="text-[12px] font-bold text-gray-500 uppercase tracking-wide mb-3">
-                  STATE
+            {/* Location Filter Card */}
+            <div className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+              <div className="px-5 py-3 border-b border-gray-50">
+                <h4 className="text-[13px] font-bold text-[#111827]">
+                  Location
                 </h4>
-                <div className="relative mb-3">
+              </div>
+              <div className="p-5">
+                <div className="relative mb-4">
                   <input
                     type="text"
-                    placeholder="Search State"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 pl-8 pr-3 text-[12px] focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    placeholder="Search Location..."
+                    className="w-full bg-white border border-gray-200 rounded-lg py-2.5 px-4 text-[13px] focus:outline-none focus:ring-1 focus:[#0D3B59] placeholder-gray-300"
                   />
-                  <svg
-                    className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
                 </div>
-                <div className="flex flex-col gap-2.5 max-h-[160px] overflow-y-auto pr-2 custom-scrollbar">
-                  {states.map((state, index) => (
+                <div className="flex flex-col gap-4">
+                  {[
+                    "Bilaspur, Chhattisgarh",
+                    "Chennai, Tamil Nadu",
+                    "Meerut, Uttar Pradesh",
+                    "Phagwara, Punjab",
+                    "West Bengal, Kolkata",
+                  ].map((loc, i) => (
                     <label
-                      key={index}
+                      key={i}
                       className="flex items-center justify-between group cursor-pointer"
                     >
-                      <span className="text-[13px] text-gray-600 group-hover:text-blue-600 truncate mr-2">
-                        {state}
+                      <span className="text-[13px] text-[#121212] group-hover:text-gray-900">
+                        {loc}
                       </span>
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                        defaultChecked={i === 0}
+                        className=" w-4 h-4 rounded border-gray-300 text-[#0D3B59] focus:ring-[#0D3B59]"
+                        style={{ accentColor: "#0D3B59" }}
                       />
                     </label>
                   ))}
                 </div>
               </div>
+            </div>
 
-              <div>
-                <h4 className="text-[12px] font-bold text-gray-500 uppercase tracking-wide mb-3">
-                  DEGREE
-                </h4>
-                <div className="relative mb-3">
+            {/* Degree Filter Card */}
+            <div className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+              <div className="px-5 py-3 border-b border-gray-50">
+                <h4 className="text-[13px] font-bold text-[#111827]">Degree</h4>
+              </div>
+              <div className="p-5">
+                <div className="relative mb-4">
                   <input
                     type="text"
-                    placeholder="Search Degree"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 pl-8 pr-3 text-[12px] focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    placeholder="Search Degree..."
+                    className="w-full bg-white border border-gray-200 rounded-lg py-2.5 px-4 text-[13px] focus:outline-none focus:ring-1 focus:ring-[#0D3B59] placeholder-gray-300"
                   />
-                  <svg
-                    className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
                 </div>
-                <div className="flex flex-col gap-2.5 max-h-[160px] overflow-y-auto pr-2 custom-scrollbar">
-                  {degrees.map((degree, index) => (
+                <div className="flex flex-col gap-4">
+                  {[
+                    "B. Pharma",
+                    "B. A",
+                    "B. A LLB",
+                    "B. Com",
+                    "B. Sc Medical",
+                  ].map((deg, i) => (
                     <label
-                      key={index}
+                      key={i}
                       className="flex items-center justify-between group cursor-pointer"
                     >
-                      <span className="text-[13px] text-gray-600 group-hover:text-blue-600 truncate mr-2">
-                        {degree}
+                      <span className="text-[13px] text-[#121212] group-hover:text-gray-900">
+                        {deg}
                       </span>
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                        defaultChecked={i === 0}
+                        className="w-4 h-4 rounded border-gray-300 text-[#0D3B59] focus:ring-[#0D3B59]"
+                        style={{ accentColor: "#0D3B59" }}
                       />
                     </label>
                   ))}
@@ -208,9 +251,11 @@ export default function CollegeListing() {
             </div>
           </div>
 
+          {/* Main Content Area */}
           <div className="flex-1 flex flex-col gap-4">
-            <div className="bg-white border text-sm border-gray-200 rounded-xl px-4 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-gray-400">
+            {/* Search Bar */}
+            <div className="bg-white border border-gray-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-2 text-gray-400 w-full">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -227,155 +272,174 @@ export default function CollegeListing() {
                 <input
                   type="text"
                   placeholder="Search Colleges..."
-                  className="outline-none text-gray-700 bg-transparent w-full"
+                  className="outline-none text-gray-700 bg-transparent w-full text-sm"
                 />
               </div>
-              <span className="text-gray-400 font-medium whitespace-nowrap text-xs">
+              <span className="text-gray-400 text-xs whitespace-nowrap">
                 Showing {MOCK_COLLEGES.length} Colleges
               </span>
             </div>
 
-            <div className="flex flex-col gap-4">
+            {/* NEW COLLEGE BOX LAYOUT */}
+            <div className="flex flex-col gap-5 lg:w-[912px]">
               {MOCK_COLLEGES.map((college, i) => (
                 <div
                   key={i}
-                  className="bg-white border border-gray-200 rounded-xl p-4 md:p-5 hover:shadow-lg transition-shadow relative group"
+                  className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow relative group h-[281px] flex flex-col overflow-hidden"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 border border-gray-100 rounded-xl p-2 bg-white flex items-center justify-center shadow-sm">
-                      <Image
-                        src={college.logo}
-                        alt={college.name}
-                        width={60}
-                        height={60}
-                        className="object-contain"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src =
-                            "/assets/logo.png";
-                        }}
-                      />
+                  {/* Row 1: Logo, NIRF, and Top Icons */}
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex items-center gap-4">
+                      <Link
+                        href="/?view=university"
+                        className="w-16 h-16 relative flex-shrink-0 border border-gray-100 rounded-lg p-1 bg-white hover:border-[#1a2e4a] transition-colors cursor-pointer"
+                      >
+                        <Image
+                          src={college.logo}
+                          alt="Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </Link>
+                      <div className="flex flex-col gap-1">
+                        {/* NIRF Badge */}
+                        <span className="bg-[#e7f3f0] text-[#007B2D] text-[14px] font-normal px-2 py-0.5 rounded w-fit border border-[#d1e9e2]">
+                          {college.approved}
+                        </span>
+                        <div className="flex items-center gap-1 text-gray-400 text-[12px]">
+                          {/* Placeholder for Pin Icon */}
+                          <img
+                            src="/assets/loc.png"
+                            alt=""
+                            className="w-3.5 h-3.5"
+                          />
+                          {college.location}
+                        </div>
+                      </div>
                     </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex flex-col min-w-0">
-                          <Link href="/?view=university" className="group/link">
-                            <h2 className="text-[16px] md:text-[18px] font-bold text-[#1a2e4a] group-hover/link:text-blue-600 transition-colors truncate">
-                              {college.name}
-                            </h2>
-                          </Link>
-                          <p className="text-[12px] md:text-[13px] text-gray-500 mt-0.5 md:mt-1 truncate flex items-center gap-1.5">
-                            {college.location} <span className="hidden md:inline text-gray-300 mx-1">|</span> <span className="hidden md:inline bg-green-50 text-green-600 px-1.5 py-0.5 rounded text-[10px] font-bold">{college.approved}</span>
-                          </p>
-                        </div>
-
-                        <div className="flex items-center gap-1.5 md:gap-2 shrink-0">
-                          <button className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                          </button>
-                          <button className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:text-orange-500 hover:bg-orange-50 transition-colors">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-x-8 md:gap-y-3 md:flex-wrap bg-[#fafafa] rounded-xl p-4 md:p-3 mt-4 md:mt-5">
-                        <div className="flex flex-col gap-0.5 md:gap-1">
-                          <span className="text-[10px] md:text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-                            Courses
-                          </span>
-                          <span className="text-[14px] md:text-[13px] font-bold text-gray-800">
-                            {college.courses}
-                          </span>
-                        </div>
-                        <div className="flex flex-col gap-0.5 md:gap-1">
-                          <span className="text-[10px] md:text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-                            Rating
-                          </span>
-                          <div className="flex items-center gap-1.5">
-                            <svg className="w-3.5 h-3.5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                            <span className="text-[14px] md:text-[13px] font-bold text-gray-800">
-                              {college.rating}
-                            </span>
-                          </div>
-                        </div>
-                        <div className="flex flex-col gap-0.5 md:gap-1">
-                          <span className="text-[10px] md:text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-                            Avg. Fees
-                          </span>
-                          <span className="text-[14px] md:text-[13px] font-bold text-gray-800">
-                            {college.fees}
-                          </span>
-                        </div>
-                        <div className="flex flex-col gap-0.5 md:gap-1">
-                          <span className="text-[10px] md:text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-                            Top Placement
-                          </span>
-                          <span className="text-[14px] md:text-[13px] font-bold text-gray-800">
-                            {college.placement}
-                          </span>
-                        </div>
-                      </div>
+                    {/* Share/Bookmark Icons */}
+                    <div className="flex gap-4 text-gray-300">
+                      <img
+                        src="/assets/share.png"
+                        alt=""
+                        className="w-5 h-5 cursor-pointer hover:opacity-70"
+                      />
+                      <img
+                        src="/assets/two.png"
+                        alt=""
+                        className="w-5 h-5 cursor-pointer hover:opacity-70"
+                      />
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-5 border-t border-gray-100 flex items-center justify-between gap-2">
-                    <label className="flex items-center gap-2.5 cursor-pointer group shrink-0 w-[80px] md:w-auto">
-                      <input
-                        type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-gray-400 focus:ring-[#1a2e4a]"
-                      />
-                      <span className="text-[12px] font-medium text-gray-500 group-hover:text-gray-800 leading-tight">
-                        Add to<br className="md:hidden" /> <span className="hidden md:inline"> </span>Compare
-                      </span>
-                    </label>
+                  {/* University Title */}
+                  <Link href="/?view=university" className="w-fit">
+                    <h2 className="text-[20px] font-semibold text-[#111827] hover:text-[#0D3B59] transition-colors mb-0 leading-tight">
+                      {college.name}
+                    </h2>
+                  </Link>
+                  <p className="text-[13px] text-gray-500 mb-0 font-regular leading-relaxed">
+                    Kamala Nehru College is a Public Institute, located in New
+                    Delhi, Delhi. Established in 1964...{" "}
+                    <span className="text-[#3B82B1] cursor-pointer">
+                      read more...
+                    </span>
+                  </p>
 
-                    <div className="flex items-center gap-2 md:gap-3 flex-1 justify-end">
-                      <button className="px-2 md:px-5 py-2.5 md:py-2.5 text-[13px] md:text-[12px] font-bold text-[#1a2e4a] md:text-gray-600 border border-gray-200 bg-white rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 flex-1 md:flex-none">
-                        <svg
-                          className="w-4 h-4 shrink-0"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                          />
-                        </svg>
+                  {/* Data Grid: 4 Columns with vertical dividers */}
+                  <div className="grid grid-cols-4 border-t border-none border-gray-100 py-1 mb-1">
+                    <div className="px-2 border-r border-gray-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img src="/assets/cap.png" alt="" className="w-4 h-4" />{" "}
+                        {/* Courses Icon */}
+                        <span className="text-[14px] font-bold text-gray-800">
+                          {college.courses}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-gray-400 pl-6">
+                        Courses Available
+                      </p>
+                    </div>
+                    <div className="px-4 border-r border-gray-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img
+                          src="/assets/rup1.png"
+                          alt=""
+                          className="w-4 h-4"
+                        />{" "}
+                        {/* Rating Icon */}
+                        <span className="text-[14px] font-bold text-gray-800">
+                          {college.fees}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-gray-400 pl-6">
+                        Fee Range
+                      </p>
+                    </div>
+                    <div className="px-4 border-r border-gray-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img
+                          src="/assets/rup1.png"
+                          alt=""
+                          className="w-4 h-4"
+                        />{" "}
+                        {/* Fees Icon */}
+                        <span className="text-[14px] font-bold text-gray-800">
+                          {college.award}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-gray-400 pl-6">
+                        Accreditation
+                      </p>
+                    </div>
+                    <div className="px-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img
+                          src="/assets/grow.png"
+                          alt=""
+                          className="w-4 h-4"
+                        />{" "}
+                        {/* Placement Icon */}
+                        <span className="text-[14px] font-bold text-gray-800">
+                          {college.placement}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-gray-400 pl-6">
+                        Highest Package
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footer: Established and Action Buttons */}
+                  <div className="flex items-center justify-between mt-2 pt-4 border-t border-gray-50">
+                    <div className="flex items-center gap-2 text-[#595959] text-[16px] font-regular">
+                      <img src="/assets/clock.png" alt="" className="w-4 h-4" />{" "}
+                      {/* Clock Icon */}
+                      Established in {college.established}
+                    </div>
+                    <div className="flex items-center gap-3">
+                      {/* Download Button Icon */}
+                      <button className="p-2.5 border border-gray-200 rounded-lg text-[#1a2e4a] hover:bg-gray-50 shadow-sm">
+                        <img src="/assets/one.png" alt="" className="w-5 h-5" />
+                      </button>
+                      <button className="px-6 py-2 text-[14px] font-bold text-[#1a2e4a] border border-[#1a2e4a] rounded-lg hover:bg-gray-50">
                         Compare
                       </button>
-                      <button className="px-4 py-2.5 md:py-2.5 font-bold text-white bg-[#1a2e4a] rounded-lg hover:bg-[#111e30] hover:shadow-md transition-all flex items-center justify-center gap-2 flex-1 md:flex-none">
-                        <span className="hidden md:flex items-center gap-1.5 text-[12px]">
-                          Apply Now
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </span>
-                        <span className="md:hidden flex items-center justify-between w-full text-[13px] text-left leading-[1.1]">
-                          <span className="flex flex-col"><span>Apply</span><span>Now</span></span>
-                          <span className="font-light text-lg ml-1">&rarr;</span>
-                        </span>
+                      <button className="px-8 py-2 text-[14px] font-bold text-white bg-[#0D3B59] rounded-lg hover:bg-[#111e30] shadow-sm">
+                        Shortlist
                       </button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-
-            <div className="flex justify-center mt-4 mb-4">
-              <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-1.5">
-                <button className="w-8 h-8 flex items-center justify-center text-gray-400 hover:bg-gray-50 rounded-md">
+            {/* Pagination UI - Exact Match */}
+            <div className="flex justify-center mt-12 mb-8">
+              <div className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl p-3 shadow-sm">
+                {/* Previous Button */}
+                <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-400 rounded-lg hover:bg-gray-50 transition-colors">
                   <svg
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -388,22 +452,42 @@ export default function CollegeListing() {
                     />
                   </svg>
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center text-white bg-[#1a2e4a] rounded-md text-[13px] font-medium shadow-sm">
+
+                {/* Active Page */}
+                <button className="w-10 h-10 flex items-center justify-center text-white bg-[#0D3B59] rounded-lg font-bold shadow-md">
                   1
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-50 rounded-md text-[13px] font-medium">
-                  2
-                </button>
-                <span className="w-8 h-8 flex items-center justify-center text-gray-400">
-                  ...
+
+                {/* Inactive Pages */}
+                {[2, 3, 4, 5].map((num) => (
+                  <button
+                    key={num}
+                    className="w-10 h-10 flex items-center justify-center border border-[#0D3B59] text-[#0D3B59] rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  >
+                    {num}
+                  </button>
+                ))}
+
+                {/* Ellipsis */}
+                <span className="px-1 text-gray-400 font-bold self-end pb-2 tracking-widest">
+                  ....
                 </span>
-                <button className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-50 rounded-md text-[13px] font-medium">
-                  5
-                </button>
-                <button className="px-3 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-50 rounded-md text-[13px] font-medium gap-1">
-                  Next{" "}
+
+                {/* End Pages */}
+                {[197, 198, 199].map((num) => (
+                  <button
+                    key={num}
+                    className="w-10 h-10 flex items-center justify-center border border-[#0D3B59] text-[#0D3B59] rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  >
+                    {num}
+                  </button>
+                ))}
+
+                {/* Next Button with Chevron */}
+                <button className="px-4 h-10 border border-gray-200 text-gray-600 rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-colors">
+                  Next
                   <svg
-                    className="w-3.5 h-3.5"
+                    className="w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -419,134 +503,216 @@ export default function CollegeListing() {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6 mt-4">
-              <h3 className="font-bold text-[16px] text-[#1a2e4a] mb-5 border-b border-gray-100 pb-3">
+            {/* --- Explore Other Popular Universities Section --- */}
+            <div className="mt-12 mb-8">
+              <h2 className="text-[#121212] font-bold text-[24px] mb-6">
                 Explore Other Popular Universities-
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {POPULAR_UNIVERSITIES.map((univ, i) => (
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {/* Use your POPULAR_UNIVERSITIES array or mock data below */}
+                {[
+                  {
+                    name: "Lovely Professional University Online-",
+                    logo: "/assets/lpu.png",
+                  },
+                  {
+                    name: "GLA University Online Courses & Admission 2025",
+                    logo: "/assets/lpu.png",
+                  },
+                  {
+                    name: "Uttaranchal University Online Courses & Admissio...",
+                    logo: "/assets/sastra.png",
+                  },
+                  {
+                    name: "Jain University Distance Education",
+                    logo: "/assets/lpu.png",
+                  },
+                  {
+                    name: "Sharda University Online Education Programs 2025",
+                    logo: "/assets/lpu.png",
+                  },
+                  {
+                    name: "Sastra University Online",
+                    logo: "/assets/sastra.png",
+                  },
+                  {
+                    name: "NMIMS Online Courses & Admissions 2026",
+                    logo: "/assets/nmims.png",
+                  },
+                  {
+                    name: "Amrita University Online",
+                    logo: "/assets/amrita.png",
+                  },
+                  {
+                    name: "Amritsar Group of colleges",
+                    logo: "/assets/lpu.png",
+                  },
+                ].map((univ, idx) => (
                   <div
-                    key={i}
-                    className="flex items-center gap-3 p-3 border border-gray-100 rounded-xl hover:shadow-sm hover:border-blue-100 transition-all cursor-pointer"
+                    key={idx}
+                    className="bg-white border border-gray-100 rounded-xl hover:shadow-md transition-shadow flex flex-col items-center text-center overflow-hidden"
                   >
-                    <div className="w-10 h-10 shrink-0 border border-gray-50 rounded bg-gray-50 flex items-center justify-center">
-                      <Image
-                        src="/assets/lpu.png"
-                        alt="logo"
-                        width={30}
-                        height={30}
-                        className="object-contain"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src =
-                            "/assets/logo.png";
-                        }}
-                      />
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[12px] font-bold text-gray-800 truncate hover:text-blue-600">
+                    <Link
+                      href="/?view=university"
+                      className="w-full flex-col flex items-center p-5 cursor-pointer flex-1"
+                    >
+                      {/* University Logo Container */}
+                      <div className="w-full h-14 flex items-center justify-center mb-4">
+                        <div className="relative w-32 h-10">
+                          <Image
+                            src={univ.logo}
+                            alt={univ.name}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+
+                      {/* University Name */}
+                      <h3 className="text-[#121212] font-semibold text-[18px] leading-snug mb-3 min-h-[40px] flex items-center justify-center underline hover:text-[#0D3B59] transition-colors">
                         {univ.name}
-                      </span>
-                      <span className="text-[10px] text-gray-400 truncate">
-                        {univ.location}
-                      </span>
-                    </div>
+                      </h3>
+
+                      {/* Location and Course Count */}
+                      <div className="flex items-center justify-between w-full pt-3 border-t border-gray-50 text-[11px] text-gray-400 mt-auto">
+                        <div className="flex items-center gap-1">
+                          <img
+                            src="/assets/loc.png"
+                            alt=""
+                            className="w-3 h-3 opacity-60"
+                          />
+                          <span className="text-[#595959]">
+                            Phagwara, Punjab
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <img
+                            src="/assets/cap.png"
+                            alt=""
+                            className="w-3 h-3 opacity-60"
+                          />
+                          <span className="text-[#595959]">19 Courses</span>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6 mt-2">
-              <h3 className="font-bold text-[16px] text-[#1a2e4a] mb-5 border-b border-gray-100 pb-3">
-                Top courses which may interests you:
-              </h3>
+            {/* --- Top Courses Interest Section --- */}
+            <div className="mt-12 mb-10">
+              <h2 className="text-[#1a2e4a] font-bold text-[20px] mb-6">
+                Top courses which may interest you-
+              </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <div>
-                  <h4 className="text-[13px] font-bold text-gray-800 mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>{" "}
-                    B.A(Hons) in various disciplines
-                  </h4>
-                  <ul className="text-[12px] text-blue-500 flex flex-col gap-2 pl-3">
-                    <li className="hover:underline cursor-pointer">
-                      B.A (Hons) History
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      B.A (Hons) English
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      B.A (Hons) Political Science
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      B.A (Hons) Psychology
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      B.A (Hons) Economics
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-[13px] font-bold text-gray-800 mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>{" "}
-                    B.B.A in various disciplines
-                  </h4>
-                  <ul className="text-[12px] text-blue-500 flex flex-col gap-2 pl-3">
-                    <li className="hover:underline cursor-pointer">
-                      BBA in HR Management
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      BBA in Marketing
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      BBA in Finance
-                    </li>
-                    <li className="hover:underline cursor-pointer">
-                      BBA in International Business
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              <div className="flex flex-col gap-5">
+                {[
+                  {
+                    title: "Online MBA in Human Resource Management",
+                    colleges: [
+                      "Uttaranchal University Online",
+                      "GLA University Online",
+                      "Jain University Online",
+                      "Shoolini University Online",
+                      "Amity University Online",
+                      "IU International University Online",
+                      "Sharda University Online",
+                      "DMIMS University Online",
+                      "LPU Online",
+                      "VOU Distance Education",
+                      "Kurukshetra University Online",
+                      "DAVV Distance Education",
+                    ],
+                  },
+                  {
+                    title: "Online MA in English",
+                    colleges: [
+                      "Uttaranchal University Online",
+                      "GLA University Online",
+                      "Jain University Online",
+                      "Shoolini University Online",
+                      "Amity University Online",
+                      "IU International University Online",
+                      "Sharda University Online",
+                      "DMIMS University Online",
+                      "LPU Online",
+                      "VOU Distance Education",
+                      "Kurukshetra University Online",
+                      "DAVV Distance Education",
+                    ],
+                  },
+                  {
+                    title: "Online MBA in Marketing",
+                    colleges: [
+                      "Uttaranchal University Online",
+                      "GLA University Online",
+                      "Jain University Online",
+                      "Shoolini University Online",
+                      "Amity University Online",
+                      "IU International University Online",
+                      "Sharda University Online",
+                      "DMIMS University Online",
+                      "LPU Online",
+                      "VOU Distance Education",
+                      "Kurukshetra University Online",
+                      "DAVV Distance Education",
+                    ],
+                  },
+                ].map((course, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm"
+                  >
+                    {/* Course Header with Blue Accent Bar */}
+                    <div className="flex items-center gap-3 mb-4 border-l-[3px] border-[#1a2e4a] pl-3">
+                      <h3 className="text-[#121212] font-semibold text-[15px]">
+                        {course.title}
+                      </h3>
+                    </div>
 
-            <div className="bg-white border text-[#1a2e4a] border-gray-200 rounded-xl p-6 mt-2">
-              <h3 className="font-bold text-[16px] mb-5 border-b border-gray-100 pb-3">
-                Top Entrance Exams for College Admissions:
-              </h3>
-              <div className="flex flex-col gap-4">
-                <div className="border border-gray-100 rounded-xl p-4 hover:shadow-sm">
-                  <h4 className="font-bold text-[14px] mb-2 text-blue-600 hover:underline cursor-pointer">
-                    CAT (Common Admission Test)
-                  </h4>
-                  <p className="text-[12px] text-gray-500 leading-relaxed mb-3">
-                    Conducted by IIMs for admission into MBA and PGDM programs
-                    across India. Known for testing quantitative, verbal, and
-                    logical reasoning.
-                  </p>
-                  <div className="flex gap-2 text-[11px] text-gray-400 font-medium overflow-x-auto pb-1 custom-scrollbar">
-                    <span className="bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-                      Accepted by 1200+ Colleges
-                    </span>
-                    <span className="bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-                      Computer Based Test
-                    </span>
+                    {/* Sub-heading with Green Check */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-4 h-4 rounded-full bg-[#22c55e] flex items-center justify-center">
+                        <svg
+                          className="w-2.5 h-2.5 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={4}
+                        >
+                          <path d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-[#595959] text-[13px] font-medium">
+                        Colleges offering this course-
+                      </p>
+                    </div>
+
+                    {/* Two-Column Links Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2.5">
+                      {course.colleges.map((college, cIdx) => (
+                        <div
+                          key={cIdx}
+                          className="flex items-center gap-2 group cursor-pointer"
+                        >
+                          {/* Play-button style bullet */}
+                          <svg
+                            className="w-2.5 h-2.5 text-[#1a2e4a]"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                          <span className="text-[#3B82B1] text-[13px] hover:underline truncate underline">
+                            {college}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="border border-gray-100 rounded-xl p-4 hover:shadow-sm">
-                  <h4 className="font-bold text-[14px] mb-2 text-blue-600 hover:underline cursor-pointer">
-                    MAT (Management Aptitude Test)
-                  </h4>
-                  <p className="text-[12px] text-gray-500 leading-relaxed mb-3">
-                    Conducted by AIMA for admission to MBA and allied programs
-                    in over 600 B-Schools.
-                  </p>
-                  <div className="flex gap-2 text-[11px] text-gray-400 font-medium overflow-x-auto pb-1 custom-scrollbar">
-                    <span className="bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-                      Accepted by 600+ Colleges
-                    </span>
-                    <span className="bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-                      Multiple Modi (CBT, PBT, IBT)
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

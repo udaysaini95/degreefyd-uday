@@ -1,228 +1,201 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 interface College {
-    id: number;
-    name: string;
-    location: string;
-    logo: string;
+  id: number;
+  name: string;
+  location: string;
+  logo: string;
 }
 
 interface ComparisonTableProps {
-    college1: College;
-    college2: College;
-    onEdit: (slot: 1 | 2) => void;
+  college1: College;
+  college2: College;
+  onEdit: (slot: 1 | 2) => void;
 }
 
-const RECRUITERS: { name: string; src: string }[] = [
-    { name: "", src: "/assets/tech.png" },
-    { name: "", src: "/assets/cog.png" },
-    { name: "", src: "/assets/apolo.png" },
-    { name: "", src: "/assets/tech.png" },
-    { name: "", src: "/assets/apolo.png" },
-    { name: "", src: "/assets/cog.png" },
+/* ─── Static data ─────────────────────────────────────── */
+const RECRUITERS: string[] = [
+  "/assets/tech.png",
+  "/assets/cog.png",
+  "/assets/apolo.png",
+  "/assets/tech.png",
+  "/assets/apolo.png",
+  "/assets/cog.png",
+  "/assets/tech.png",
+  "/assets/apolo.png",
+  "/assets/cog.png",
+  "/assets/apolo.png",
+  "/assets/tech.png",
 ];
 
-const getCollegeData = (college: College) => ({
-    instituteInfo: {
-        "College Type": "Private",
-        "Established": "2008",
-        "Total Students": "21205",
-        "Courses Offered": "19",
-        "Location Type": "Urban",
-        "Affiliated University": "Autonomous",
-    },
-    placements: {
-        "Avg. Package": "₹6.86 LPA",
-        "Highest Package": "₹20 LPA",
-    },
-    rankings: {
-        "NIRF Rank": "#34",
-        "NAAC Grade": "A+",
-        "UGC Recognised": "Yes",
-        "AICTE Approved": "Yes",
-    },
-    feeRange: {
-        "Total Fee (Approx.)": "₹31,180 – ₹1,00,000",
-    },
-});
+interface RowData { label: string; v1: string; v2: string }
 
+const INSTITUTE_ROWS: RowData[] = [
+  { label: "College Type-", v1: "Private", v2: "Private" },
+  { label: "Established Year-", v1: "2008", v2: "2008" },
+  { label: "Total Students-", v1: "21205", v2: "21205" },
+  { label: "Courses Offered-", v1: "19", v2: "19" },
+  { label: "Location Type-", v1: "Urban", v2: "Urban" },
+  { label: "Affiliated University-", v1: "Autonomous", v2: "Autonomous" },
+];
 
-function ComparisonSection({
-    title,
-    rows,
-    data1,
-    data2,
-}: {
-    title: string;
-    rows: string[];
-    data1: Record<string, string>;
-    data2: Record<string, string>;
-}) {
-    return (
-        <div className="mb-4">
-            <div
-                className="text-center font-bold text-[#1a2e4a] text-[15px] py-2.5 rounded-t-xl"
-                style={{ backgroundColor: "#e8eef4" }}
-            >
-                {title}
-            </div>
-            <div className="border border-gray-100 rounded-b-xl overflow-hidden">
-                {rows.map((label, i) => (
-                    <div key={label} className={`flex ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-                        <div className="flex-1 px-4 py-3 border-r border-gray-100">
-                            <p className="text-xs text-gray-400 mb-0.5">{label}</p>
-                            <p className="text-sm font-semibold text-[#1a2e4a]">{data1[label] ?? "—"}</p>
-                        </div>
-                        <div className="flex-1 px-4 py-3">
-                            <p className="text-xs text-gray-400 mb-0.5">{label}</p>
-                            <p className="text-sm font-semibold text-[#1a2e4a]">{data2[label] ?? "—"}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+const PLACEMENT_ROWS: RowData[] = [
+  { label: "Average Package-", v1: "6.86 LPA", v2: "9.54 LPA" },
+  { label: "Highest Package-", v1: "20 LPA", v2: "34.4 LPA" },
+];
+
+const RANKING_ROWS: RowData[] = [
+  { label: "NIRF Rank-", v1: "#34", v2: "#35" },
+  { label: "Accreditations-", v1: "NAAC Grade A+, UGC,DRF, AICTE", v2: "NAAC Grade A+, UGC,DRF, AICTE" },
+];
+
+/* ─── Helpers ─────────────────────────────────────────── */
+
+function SectionBanner({ title }: { title: string }) {
+  return (
+    <div
+      className="text-center font-bold text-[#111827] text-[18px] sm:text-[24px] py-[10px] tracking-wide border-b border-gray-200"
+      style={{ backgroundColor: "#e9ecf0" }}
+    >
+      {title}
+    </div>
+  );
 }
 
-function RecruitersSection() {
-    return (
-        <div className="mb-4">
-            <div
-                className="text-center font-bold text-[#1a2e4a] text-[15px] py-2.5 rounded-t-xl"
-                style={{ backgroundColor: "#e8eef4" }}
-            >
-                Top Recruiters
-            </div>
-            <div className="border border-gray-100 rounded-b-xl overflow-hidden">
-                <div className="flex bg-white">
-                    {[RECRUITERS, RECRUITERS].map((list, side) => (
-                        <div
-                            key={side}
-                            className={`flex-1 px-3 py-3 ${side === 0 ? "border-r border-gray-100" : ""}`}
-                        >
-                            <div className="flex flex-wrap gap-2">
-                                {list.map((r) => (
-                                    <div
-                                        key={r.name}
-                                        className="flex flex-col items-center gap-1"
-                                        title={r.name}
-                                    >
-                                        <div className="w-12 h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center overflow-hidden p-1 hover:shadow-sm transition-shadow">
-                                            <img
-                                                src={r.src}
-                                                alt={r.name}
-                                                className="w-full h-full object-contain"
-                                            />
-                                        </div>
-                                        <span className="text-[9px] text-gray-500 font-medium text-center leading-tight max-w-[48px] truncate">
-                                            {r.name}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+/** One table row: two cells separated by a vertical border.
+ *  Each cell: label (small gray left) + value (bold right-aligned right). */
+function TableRow({ row }: { row: RowData }) {
+  // Removes the trailing dash from labels like "College Type-"
+  const cleanLabel = row.label.replace(/-$/, "");
+
+  // Applying Segoe UI via inline style for consistency
+  const segoeStyle = {
+    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+  };
+
+  return (
+    <div
+      className="flex bg-white border-b border-gray-100 last:border-b-0"
+      style={segoeStyle}
+    >
+      {/* Left Cell (College 1) */}
+      <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-between px-3 sm:px-5 py-3 border-r border-gray-200 gap-1 sm:gap-0">
+        <span className="text-[12px] sm:text-[14px] text-gray-500 font-normal order-2 sm:order-1 leading-tight sm:leading-normal">
+          {cleanLabel}
+        </span>
+        <span className="text-[13px] sm:text-[14px] font-bold text-[#111827] order-1 sm:order-2 leading-tight sm:leading-normal">{row.v1}</span>
+      </div>
+
+      {/* Right Cell (College 2) */}
+      <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-between px-3 sm:px-5 py-3 gap-1 sm:gap-0">
+        <span className="text-[12px] sm:text-[14px] text-gray-500 font-normal order-2 sm:order-1 leading-tight sm:leading-normal">
+          {cleanLabel}
+        </span>
+        <span className="text-[13px] sm:text-[14px] font-bold text-[#111827] order-1 sm:order-2 leading-tight sm:leading-normal">{row.v2}</span>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Main export ─────────────────────────────────────── */
+
+export default function ComparisonTable({
+  college1,
+  college2,
+}: ComparisonTableProps) {
+
+  return (
+    <div className="w-full">
+      {/* ── Institute Information ── */}
+      <div className="mb-4 border border-gray-200 overflow-hidden">
+        <SectionBanner title="Institute Information" />
+        {INSTITUTE_ROWS.map((row, i) => (
+          <TableRow key={row.label} row={row} />
+        ))}
+      </div>
+
+      {/* ── Placements ── */}
+      <div className="mb-4 border border-gray-200 overflow-hidden">
+        <SectionBanner title="Placements" />
+        {PLACEMENT_ROWS.map((row, i) => (
+          <TableRow key={row.label} row={row} />
+        ))}
+      </div>
+
+      {/* ── Top Recruiters ── */}
+      <div className="mb-4 border border-gray-200 overflow-hidden">
+        <SectionBanner title="Top Recruiters" />
+        <div className="flex bg-white flex-row">
+          {/* col 1 */}
+          <div className="flex-1 px-2 sm:px-4 py-3 sm:py-4 border-r border-gray-200">
+            <div className="flex flex-wrap gap-[4px] sm:gap-[6px] justify-center sm:justify-start">
+              {RECRUITERS.map((src, i) => (
+                <div key={i} className="w-[30px] h-[28px] sm:w-[38px] sm:h-[36px] bg-white border border-gray-200 rounded flex items-center justify-center overflow-hidden p-[2px] sm:p-[3px]">
+                  <img src={src} alt="" className="w-full h-full object-contain" />
                 </div>
+              ))}
             </div>
-        </div>
-    );
-}
-
-export default function ComparisonTable({ college1, college2, onEdit }: ComparisonTableProps) {
-    const data1 = getCollegeData(college1);
-    const data2 = getCollegeData(college2);
-
-    return (
-      <div className="w-full">
-        <div className="mb-5">
-          <h2 className="text-base sm:text-xl lg:text-2xl font-extrabold text-[#1a2e4a] mb-1 leading-snug">
-            <span>{college1.name}</span>
-            <span className="mx-2" style={{ color: "#FF8C00" }}>
-              Vs
-            </span>
-            <span>{college2.name}</span>
-          </h2>
-          <p className="text-gray-500 text-sm">
-            Evaluate them side by side based on fees, rankings, placements,
-            courses, and more.
-          </p>
-        </div>
-
-
-        <ComparisonSection
-          title="Institute Information"
-          rows={Object.keys(data1.instituteInfo)}
-          data1={data1.instituteInfo}
-          data2={data2.instituteInfo}
-        />
-
-        <ComparisonSection
-          title="Placements"
-          rows={Object.keys(data1.placements)}
-          data1={data1.placements}
-          data2={data2.placements}
-        />
-
-        <RecruitersSection />
-
-        <ComparisonSection
-          title="Rankings & Accreditations"
-          rows={Object.keys(data1.rankings)}
-          data1={data1.rankings}
-          data2={data2.rankings}
-        />
-
-        <ComparisonSection
-          title="Fee Range"
-          rows={Object.keys(data1.feeRange)}
-          data1={data1.feeRange}
-          data2={data2.feeRange}
-        />
-
-        <div className="flex gap-3 mt-6">
-          <button
-            className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "#1a2e4a" }}
-          >
-            Shortlist {college1.name.split(" ")[0]}
-          </button>
-          <button
-            className="flex-1 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "#FF8C00" }}
-          >
-            Shortlist {college2.name.split(" ")[0]}
-          </button>
-        </div>
-
-        <div
-          className="mt-6 rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 overflow-hidden"
-          style={{ backgroundColor: "#254F6A" }}
-        >
-          <div className="flex flex-col gap-3">
-            <p className="text-white text-sm sm:text-base lg:text-lg font-bold leading-snug max-w-xs">
-              Still not Sure about colleges?{" "}
-              <span className="font-semibold">
-                Let&apos;s Connect with our Experts.
-              </span>
-            </p>
-            <button className="bg-white text-[#1a3c5e] font-bold px-5 py-2 rounded-lg w-fit hover:bg-gray-100 transition-colors text-sm">
-              Connect Now
-            </button>
           </div>
-          <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36">
-            <div className="relative w-full h-full">
-              <Image
-                src="/assets/3d.png"
-                alt="Expert advisor"
-                fill
-                className="object-contain object-bottom"
-              />
+          {/* col 2 */}
+          <div className="flex-1 px-2 sm:px-4 py-3 sm:py-4">
+            <div className="flex flex-wrap gap-[4px] sm:gap-[6px] justify-center sm:justify-start">
+              {RECRUITERS.slice(0, 8).map((src, i) => (
+                <div key={i} className="w-[30px] h-[28px] sm:w-[38px] sm:h-[36px] bg-white border border-gray-200 rounded flex items-center justify-center overflow-hidden p-[2px] sm:p-[3px]">
+                  <img src={src} alt="" className="w-full h-full object-contain" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    );
+
+      {/* ── Rankings & Accreditations ── */}
+      <div className="mb-4 border border-gray-200 overflow-hidden">
+        <SectionBanner title="Rankings & Accreditations" />
+        {RANKING_ROWS.map((row, i) => (
+          <TableRow key={row.label} row={row} />
+        ))}
+      </div>
+
+      {/* ── Fee Range ── */}
+      <div className="mb-5 border border-gray-200 overflow-hidden">
+        <SectionBanner title="Fee Range" />
+        <div className="flex bg-white flex-row">
+          {/* left */}
+          <div className="flex-1 flex flex-col px-3 sm:px-4 py-3 border-r border-gray-200 gap-0.5 sm:gap-0.5 min-w-0 items-center sm:items-start text-center sm:text-left">
+            <span className="text-[10px] sm:text-[12px] text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis order-2 sm:order-1 leading-tight sm:leading-normal">Total Fee Range (Approx.)</span>
+            <span className="text-[12px] sm:text-[13px] font-bold text-[#111827] order-1 sm:order-2 leading-tight sm:leading-normal">₹31,180 – ₹1,00,000</span>
+          </div>
+          {/* right */}
+          <div className="flex-1 flex flex-col px-3 sm:px-4 py-3 gap-0.5 sm:gap-0.5 min-w-0 items-center sm:items-start text-center sm:text-left">
+            <span className="text-[10px] sm:text-[12px] text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis order-2 sm:order-1 leading-tight sm:leading-normal">Average Package (Approx.)</span>
+            <span className="text-[12px] sm:text-[13px] font-bold text-[#111827] order-1 sm:order-2 leading-tight sm:leading-normal">₹31,180 – ₹1,25,000</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Shortlist Buttons ── */}
+      <div className="flex gap-2 sm:gap-4 mb-4 mt-6 items-center px-0 sm:px-4">
+        <div className="flex-1 flex justify-center w-full">
+          <button
+            className="w-full sm:w-[300px] py-2 sm:py-2.5 text-white font-semibold text-[13px] sm:text-[14px] rounded-[6px] sm:rounded-md hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: "#113654" }}
+          >
+            Shortlist
+          </button>
+        </div>
+        <div className="flex-1 flex justify-center w-full">
+          <button
+            className="w-full sm:w-[300px] py-2 sm:py-2.5 text-white font-semibold text-[13px] sm:text-[14px] rounded-[6px] sm:rounded-md hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: "#f29339" }}
+          >
+            Shortlist
+          </button>
+        </div>
+      </div>
+
+    </div>
+  );
 }

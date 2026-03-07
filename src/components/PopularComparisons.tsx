@@ -115,104 +115,113 @@ const FAQ_ITEMS = [
 ];
 
 function ComparisonCard({ pair }: { pair: CollegePair }) {
+    const vogueStyle = {
+        fontFamily: '"Vogue", "Segoe UI", Tahoma, sans-serif',
+        fontWeight: 600,
+        fontSize: "14px",
+    };
+
     return (
-        <div
-            className="flex-none bg-white border border-gray-100 rounded-2xl p-3 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-8px)]"
-        >
-            <div className="flex items-center gap-0">
-                <div className="flex-1 flex items-center justify-center bg-white border border-gray-200 rounded-xl h-[100px] relative">
-                    <div className="relative w-16 h-16">
+        <div className="flex-none bg-white border border-gray-100 rounded-[12px] p-5 flex flex-col justify-between w-[320px] sm:w-[410px] min-h-[300px] shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow">
+            {/* Header: Logos and VS Badge */}
+            <div className="flex relative items-center justify-between gap-4 mb-3">
+                {/* Logo 1 Container */}
+                <div className="w-[125px] h-[68px] border border-gray-100 rounded-[6px] flex items-center justify-center p-2 bg-white">
+                    <div className="relative w-full h-full">
                         <Image
                             src={pair.college1.logo}
                             alt={pair.college1.name}
                             fill
                             className="object-contain"
-                            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                         />
                     </div>
                 </div>
 
-                <div className="flex-shrink-0 flex items-center justify-center w-9 z-10">
-                    <div
-                        className="w-7 h-7 rounded-full flex items-center justify-center shadow-sm"
-                        style={{ backgroundColor: "#FF8C00" }}
-                    >
-                        <span className="text-white font-bold text-[9px]">Vs</span>
-                    </div>
+                {/* VS Badge */}
+                <div className="absolute left-1/2 -translate-x-1/2 z-10 w-7 h-7 rounded-full flex items-center justify-center bg-[#f29339] border-[2.5px] border-white shadow-sm">
+                    <span className="text-white font-bold text-[10px] uppercase tracking-tighter">
+                        Vs
+                    </span>
                 </div>
 
-                <div className="flex-1 flex items-center justify-center bg-white border border-gray-200 rounded-xl h-[100px] relative">
-                    <div className="relative w-16 h-16">
+                {/* Logo 2 Container */}
+                <div className="w-[125px] h-[68px] border border-gray-100 rounded-[6px] flex items-center justify-center p-2 bg-white">
+                    <div className="relative w-full h-full">
                         <Image
                             src={pair.college2.logo}
                             alt={pair.college2.name}
                             fill
                             className="object-contain"
-                            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                         />
                     </div>
                 </div>
             </div>
 
-            <div className="flex gap-1">
-                <div className="flex-1 min-w-0">
+            {/* Content: Names and Locations aligned DIRECTLY under logos */}
+            <div className="flex justify-between gap-4 mb-6 px-1">
+                {/* College 1 Info Column - Anchored under first logo */}
+                <div className="w-[125px] flex flex-col items-start text-left">
                     <p
-                        className="text-[#1a2e4a] font-extrabold text-[11px] leading-tight"
-                        style={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                        }}
+                        style={vogueStyle}
+                        className="text-[#111827] leading-[1.3] line-clamp-2 h-[40px] mb-2"
                     >
                         {pair.college1.name}
                     </p>
-                    <div className="flex items-center gap-0.5 mt-1 text-gray-400">
+                    <div className="flex items-center gap-1.5 text-gray-400">
                         <PinIcon />
-                        <span className="text-[9px] truncate">{pair.college1.location}</span>
+                        <span className="text-[12px] font-normal leading-none truncate">
+                            {pair.college1.location}
+                        </span>
                     </div>
                 </div>
-                <div className="w-9 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
+
+                {/* College 2 Info Column - Anchored under second logo */}
+                <div className="w-[125px] flex flex-col items-start text-left">
                     <p
-                        className="text-[#1a2e4a] font-extrabold text-[11px] leading-tight"
-                        style={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                        }}
+                        style={vogueStyle}
+                        className="text-[#111827] leading-[1.3] line-clamp-2 h-[40px] mb-2"
                     >
                         {pair.college2.name}
                     </p>
-                    <div className="flex items-center gap-0.5 mt-1 text-gray-400">
+                    <div className="flex items-center gap-1.5 text-gray-400">
                         <PinIcon />
-                        <span className="text-[9px] truncate">{pair.college2.location}</span>
+                        <span className="text-[12px] font-normal leading-none truncate">
+                            {pair.college2.location}
+                        </span>
                     </div>
                 </div>
             </div>
 
-            <div className="flex justify-center">
-                <Link
-                    href="#"
-                    className="px-8 py-2 text-white font-bold text-xs rounded-lg flex items-center gap-1.5 hover:opacity-90 transition-opacity"
-                    style={{ backgroundColor: "#1a2e4a" }}
+            {/* Footer: Button */}
+            <div className="flex justify-center mt-auto">
+                <button
+                    type="button"
+                    className="w-full sm:w-[170px] py-2.5 bg-[#0d3b59] text-white font-bold text-[13px] rounded-[6px] flex items-center justify-center gap-2 hover:bg-[#092a40] transition-all"
                 >
                     Compare
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2.5}
+                            d="M9 5l7 7-7 7"
+                        />
                     </svg>
-                </Link>
+                </button>
             </div>
         </div>
     );
 }
-
 // ---- Horizontal carousel for a group ----
 function ComparisonCarousel({ group }: { group: (typeof GROUPS)[0] }) {
     return (
         <div className="mb-8">
-            <h2 className="text-[#1a2e4a] font-extrabold text-[17px] sm:text-[19px] mb-4">
+            <h2 className="text-[#111827] font-extrabold text-[18px] sm:text-[20px] mb-5">
                 {group.heading}
             </h2>
             <div className="overflow-hidden">
@@ -225,11 +234,13 @@ function ComparisonCarousel({ group }: { group: (typeof GROUPS)[0] }) {
                     ))}
                 </div>
             </div>
-            <div className="flex items-center justify-center gap-1.5 mt-3">
+            <div className="flex items-center justify-center gap-2 mt-2">
                 {group.pairs.map((_, i) => (
                     <span
                         key={i}
-                        className={`block rounded-full transition-all ${i === 0 ? "w-3 h-2 bg-gray-400" : "w-2 h-2 bg-gray-200"
+                        className={`block rounded-full w-[6px] h-[6px] transition-all ${i === 0
+                            ? "bg-[#113654]"
+                            : "bg-white border border-gray-300"
                             }`}
                     />
                 ))}
