@@ -9,14 +9,32 @@ import BlogListing from "@/components/BlogListing";
 import BlogDetail from "@/components/BlogDetail";
 
 export default async function Home(props: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const searchParams = await props.searchParams;
   const view = searchParams.view;
 
   return (
     <main>
-      {view === "course-detail" ? <CourseDetail /> : view === "blog-detail" ? <BlogDetail /> : view === "blogs" ? <BlogListing /> : view === "exam-detail" ? <ExamDetail /> : view === "exams" ? <ExamListing /> : view === "university" ? <UniversityPage /> : view === "courses" ? <CourseListing /> : view === "colleges" ? <CollegeListing /> : <CollegeComparator searchParams={searchParams} />}
+      {view === "course-detail" ? (
+        <CourseDetail />
+      ) : view === "blog-detail" ? (
+        <BlogDetail />
+      ) : view === "blogs" ? (
+        <BlogListing />
+      ) : view === "exam-detail" ? (
+        <ExamDetail />
+      ) : view === "exams" ? (
+        <ExamListing />
+      ) : view === "university" ? (
+        <UniversityPage />
+      ) : view === "courses" ? (
+        <CourseListing />
+      ) : view === "colleges" ? (
+        <CollegeListing />
+      ) : (
+        <CollegeComparator searchParams={searchParams} />
+      )}
     </main>
   );
 }

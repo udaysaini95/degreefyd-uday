@@ -66,11 +66,11 @@ export default function UniversityPage() {
         </nav>
 
         {/* 2. Hero Section Card */}
-        <div className="bg-white rounded-2xl p-6 relative mb-8">
-          <div className="flex flex-col lg:flex-row gap-8">
+        <div className="bg-white rounded-2xl p-4 lg:p-6 relative mb-6 lg:mb-8">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             <div className="flex-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 shrink-0 border border-gray-100 rounded-xl bg-white p-2 flex items-center justify-center shadow-sm">
+              <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 shrink-0 border border-gray-100 rounded-xl bg-white p-1.5 lg:p-2 flex items-center justify-center shadow-sm">
                   <Image
                     src="/assets/amity1.png"
                     alt="Logo"
@@ -79,16 +79,16 @@ export default function UniversityPage() {
                     className="object-contain"
                   />
                 </div>
-                <span className="bg-[#e7f3f0] text-[#007B2D] text-[12px] font-semibold px-2 py-0.5 rounded border border-[#d1e9e2]">
+                <span className="bg-[#e7f3f0] text-[#007B2D] text-[11px] lg:text-[12px] font-semibold px-2 py-0.5 rounded border border-[#d1e9e2]">
                   #134 NIRF Rank
                 </span>
               </div>
-              <h1 className="text-[32px] font-bold text-[#f28c28] leading-tight mb-4">
+              <h1 className="text-[22px] lg:text-[32px] font-bold text-[#f28c28] leading-tight mb-3 lg:mb-4">
                 Amity University{" "}
                 <span className="text-black font-extrabold">Bengaluru</span>
               </h1>
-              <div className="flex items-center gap-2 mb-8">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[13px] text-[#595959]">
+              <div className="flex items-center gap-2 mb-6 lg:mb-8">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[12px] lg:text-[13px] text-[#595959]">
                   <img
                     src="/assets/loc.png"
                     alt=""
@@ -96,7 +96,7 @@ export default function UniversityPage() {
                   />
                   New Delhi, Delhi
                 </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[13px] text-[#595959]">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[12px] lg:text-[13px] text-[#595959]">
                   <img
                     src="/assets/cap.png"
                     alt=""
@@ -105,8 +105,8 @@ export default function UniversityPage() {
                   Distance
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <button className="px-5 py-2.5 border border-[#1a2e4a] text-[#1a2e4a] font-semibold rounded-lg flex items-center gap-2 hover:bg-gray-50 text-[14px]">
+              <div className="flex flex-row items-center gap-3 w-full">
+                <button className="flex-1 lg:flex-none justify-center px-4 lg:px-5 py-2.5 border border-[#1a2e4a] text-[#1a2e4a] font-semibold rounded-lg flex items-center gap-2 hover:bg-gray-50 text-[13px] lg:text-[14px]">
                   Brochure{" "}
                   <svg
                     className="w-4 h-4"
@@ -118,7 +118,7 @@ export default function UniversityPage() {
                     <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                 </button>
-                <button className="px-6 py-2.5 bg-[#0D3B59] text-white font-semibold rounded-lg flex items-center gap-2 hover:bg-[#092a40] text-[14px]">
+                <button className="flex-1 lg:flex-none justify-center px-4 lg:px-6 py-2.5 bg-[#0D3B59] text-white font-semibold rounded-lg flex items-center gap-2 hover:bg-[#092a40] text-[13px] lg:text-[14px]">
                   Apply now{" "}
                   <svg
                     className="w-4 h-4"
@@ -145,7 +145,7 @@ export default function UniversityPage() {
 
         {/* 3. Description Section */}
         <div className="px-1 mb-5">
-          <p className="text-[15px] leading-relaxed text-[#121212] font-normal">
+          <p className="text-[13px] lg:text-[15px] leading-relaxed text-[#121212] font-normal">
             Indira Gandhi National Open University (IGNOU) is a central
             university established in 1985 by an Act of Parliament.  It started
             functioning academically in 1987, with two programs and around 4,500
@@ -183,11 +183,11 @@ export default function UniversityPage() {
 
       {/* 6. Whole Page Content Background Section */}
       {/* 6. Whole Page Content Background Section */}
-      <div className="bg-[#f3f4f6] min-h-screen pt-6 pb-20">
+      <div className="bg-[#f3f4f6] min-h-screen pt-4 lg:pt-6 pb-20">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row gap-6 items-start">
             {/* LEFT COLUMN: Main Content */}
-            <div className="flex-1 min-w-0 flex flex-col gap-6">
+            <div className="flex-1 min-w-0 flex flex-col gap-4 lg:gap-6 w-full">
               {/* 1. Author and Update Meta Info */}
               <div className="flex items-center gap-3 px-1 mb-4">
                 {/* Author Image */}
@@ -215,13 +215,13 @@ export default function UniversityPage() {
                 </div>
               </div>
               {/* Table of Contents Card */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <h3 className="text-[20px] font-bold text-[#111827]">
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-sm">
+                <div className="flex items-center gap-3 mb-4 lg:mb-6">
+                  <h3 className="text-[18px] lg:text-[20px] font-bold text-[#111827]">
                     Table of contents-
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 gap-y-4 gap-x-12">
+                <div className="grid grid-cols-1 gap-y-3 lg:gap-y-4 gap-x-12">
                   {[
                     "Overview",
                     "Courses and Fee",
@@ -240,13 +240,13 @@ export default function UniversityPage() {
                       >
                         <path d="M8 5v14l11-7z" />
                       </svg>
-                      <span className="text-[#3B82B1] text-[15px] font-normal group-hover:underline">
+                      <span className="text-[#3B82B1] text-[14px] lg:text-[15px] font-normal group-hover:underline">
                         {item}
                       </span>
                     </div>
                   ))}
                 </div>
-                <button className="mt-8 text-[#3B82B1] text-[14px] font-bold flex items-center gap-1 hover:underline">
+                <button className="mt-6 lg:mt-8 text-[#3B82B1] text-[13px] lg:text-[14px] font-bold flex items-center gap-1 hover:underline">
                   View more{" "}
                   <svg
                     className="w-4 h-4"
@@ -265,12 +265,12 @@ export default function UniversityPage() {
               </div>
 
               {/* University Highlights Section - Pixel Perfect */}
-              <div className="flex-1 min-w-0 flex flex-col gap-6">
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                  <h2 className="text-[22px] font-bold text-[#111827] mb-4">
+              <div className="flex-1 min-w-0 flex flex-col gap-4 lg:gap-6">
+                <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
+                  <h2 className="text-[18px] lg:text-[22px] font-bold text-[#111827] mb-3 lg:mb-4">
                     Amity University Mohali BBA Highlights 2026-
                   </h2>
-                  <p className="text-[14px] text-[#595959] leading-[1.7] mb-8 font-normal">
+                  <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-6 lg:mb-8 font-normal">
                     Amity University Mohali provides a modern learning
                     environment for BBA students. This Punjab campus uses
                     advanced technology to deliver top-notch academic programs.
@@ -280,9 +280,9 @@ export default function UniversityPage() {
                     University Mohali:
                   </p>
 
-                  {/* Table with 50% Column Widths */}
-                  <div className="overflow-hidden rounded-xl border border-gray-200">
-                    <table className="w-full text-left text-[14px] border-collapse table-fixed">
+                  {/* Table with Horizontal Scroll on Mobile */}
+                  <div className="overflow-x-auto w-full no-scrollbar rounded-xl border border-gray-200">
+                    <table className="w-full min-w-[500px] lg:min-w-full text-left text-[13px] lg:text-[14px] border-collapse table-fixed">
                       <thead>
                         <tr className="bg-[#0D3B59] text-white">
                           <th className="w-1/2 px-6 py-4.5 font-bold border-r border-white/10 uppercase tracking-wide">
@@ -337,37 +337,46 @@ export default function UniversityPage() {
                   </div>
                 </div>
 
-                {/* Insights Promo Banner */}
-                <div className="bg-[#2D546E] rounded-2xl p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between min-h-[180px] shadow-lg">
-                  {/* Text Content */}
-                  <div className="z-10 max-w-[60%]">
-                    <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-tight mb-6">
-                      Unlock Full College Insights to Choose the Right Program
-                      for Your Future
-                    </h3>
-                    <button className="bg-white text-[#0D3B59] px-6 py-2.5 rounded-lg font-bold text-[14px] hover:bg-gray-50 transition-all shadow-sm">
-                      Know more
-                    </button>
-                  </div>
-
-                  {/* Illustration Placeholder */}
-                  <div className="absolute right-0 bottom-0 w-[180px] h-[160px] flex items-end justify-end pointer-events-none">
+                {/* Insights Promo Banner — mobile: image | desktop: styled div */}
+                <div className="w-full">
+                  <div className="block md:hidden rounded-2xl overflow-hidden shadow-lg">
                     <Image
-                      src="/assets/3d.png" // Insert 3D illustration image path here
-                      alt="Promo Illustration"
-                      width={220}
-                      height={180}
-                      className="object-contain"
+                      src="/assets/mobile.png"
+                      width={800}
+                      height={200}
+                      className="w-full h-auto object-cover"
+                      alt="Unlock Full College Insights to Choose the Right Program for Your Future"
                     />
+                  </div>
+                  <div className="hidden md:flex bg-[#2D546E] rounded-2xl p-8 relative overflow-hidden items-center justify-between min-h-[180px] shadow-lg">
+                    {/* Text Content */}
+                    <div className="z-10 w-full md:max-w-[60%]">
+                      <h3 className="text-white md:text-[24px] font-bold leading-tight mb-6">
+                        Unlock Full College Insights to Choose the Right Program for Your Future
+                      </h3>
+                      <button className="bg-white text-[#0D3B59] px-6 py-2.5 rounded-lg font-bold text-[14px] hover:bg-gray-50 transition-all shadow-sm">
+                        Know more
+                      </button>
+                    </div>
+
+                    {/* Illustration Placeholder */}
+                    <div className="absolute right-0 bottom-0 w-[180px] h-[160px] flex items-end justify-end pointer-events-none">
+                      <Image
+                        src="/assets/3d.png"
+                        alt="Promo Illustration"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
               {/* --- Amity University Mohali BBA Popular Courses --- */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-6">
-                <h2 className="text-[22px] font-bold text-[#111827] mb-4">
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-4 lg:mb-6">
+                <h2 className="text-[18px] lg:text-[22px] font-bold text-[#111827] mb-3 lg:mb-4">
                   Amity University Mohali BBA Popular Courses-
                 </h2>
-                <p className="text-[14px] text-[#595959] leading-[1.7] mb-6 font-normal">
+                <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-4 lg:mb-6 font-normal">
                   BBA program at Amity University Mohali provides multiple paths
                   which help students achieve their professional objectives. The
                   courses help students build their skills in specific business
@@ -410,11 +419,11 @@ export default function UniversityPage() {
               </div>
 
               {/* --- Amity University Mohali BBA Fees Details 2026 --- */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                <h2 className="text-[22px] font-bold text-[#111827] mb-4">
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-4 lg:mb-6">
+                <h2 className="text-[18px] lg:text-[22px] font-bold text-[#111827] mb-3 lg:mb-4">
                   Amity University Mohali BBA Fees Details 2026-
                 </h2>
-                <p className="text-[14px] text-[#595959] leading-[1.7] mb-8 font-normal">
+                <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-6 lg:mb-8 font-normal">
                   Amity University Mohali offers a structured fee plan for BBA
                   aspirants in 2026. The costs include academic learning, global
                   curriculum, and modern campus facilities. Tuition fees vary by
@@ -423,8 +432,8 @@ export default function UniversityPage() {
                 </p>
 
                 {/* Fees Table: Exact Pixel Match */}
-                <div className="overflow-hidden rounded-xl border border-gray-200">
-                  <table className="w-full text-left text-[14px] border-collapse table-fixed">
+                <div className="overflow-x-auto w-full no-scrollbar rounded-xl border border-gray-200">
+                  <table className="w-full min-w-[500px] lg:min-w-full text-left text-[13px] lg:text-[14px] border-collapse table-fixed">
                     <thead>
                       <tr className="bg-[#0D3B59] text-white">
                         <th className="w-1/2 px-6 py-4.5 font-bold border-r border-white/10 uppercase tracking-wide">
@@ -462,11 +471,11 @@ export default function UniversityPage() {
                 </div>
               </div>
               {/* --- Amity University Mohali BBA Admission 2026: How to Apply? --- */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                <h2 className="text-[22px] font-bold text-[#111827] mb-4">
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-4 lg:mb-6">
+                <h2 className="text-[18px] lg:text-[22px] font-bold text-[#111827] mb-3 lg:mb-4">
                   Amity University Mohali BBA Admission 2026: How to Apply?
                 </h2>
-                <p className="text-[14px] text-[#595959] leading-[1.7] mb-10 font-normal">
+                <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-8 lg:mb-10 font-normal">
                   Amity University Mohali BBA admission process operates through
                   an online system which provides a student-friendly experience
                   for its applicants. The university uses a digital "Admission
@@ -476,157 +485,155 @@ export default function UniversityPage() {
                   entrance scores as additional evidence for their applications.
                 </p>
 
-                {/* --- Amity University Mohali BBA Admission 2026: How to Apply? --- */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                  <h2 className="text-[22px] font-bold text-[#111827] mb-4">
-                    Amity University Mohali BBA Admission 2026: How to Apply?
-                  </h2>
-                  <p className="text-[14px] text-[#595959] leading-[1.7] mb-10 font-normal">
-                    Amity University Mohali BBA admission process operates
-                    through an online system which provides a student-friendly
-                    experience for its applicants.
-                  </p>
+                {/* Vertical Step Indicator with Unified Arrow Badges */}
+                <div className="relative flex flex-col gap-10 ml-0 lg:ml-4">
+                  {/* Dashed Connecting Line aligned to flat edge of arrow */}
+                  <div className="absolute left-[38px] top-6 bottom-6 w-px border-l-2 border-dashed border-gray-300 z-0"></div>
 
-                  {/* Vertical Step Indicator with Unified Arrow Badges */}
-                  <div className="relative flex flex-col gap-10 ml-4">
-                    {/* Dashed Connecting Line aligned to flat edge of arrow */}
-                    <div className="absolute left-[38px] top-6 bottom-6 w-px border-l-2 border-dashed border-gray-300 z-0"></div>
-
-                    {[
-                      {
-                        step: "Step 1",
-                        title: "Online Application:",
-                        desc: "You need to go to the official Amity Mohali website and select the 'Apply Now 2026' option to begin your registration process.",
-                        active: true,
-                      },
-                      {
-                        step: "Step 2",
-                        title: "Registration & Login:",
-                        desc: "You need to create an account by using a valid email address and phone number to receive your individual Form Number and Password.",
-                      },
-                      {
-                        step: "Step 3",
-                        title: "Document Upload:",
-                        desc: "Applicants need to upload scanned copies of their Class 10 and 12mark sheet and a recent color passport-size photograph (3.5 x 4.5 cm).",
-                      },
-                      {
-                        step: "Step 4",
-                        title: "Application Fee:",
-                        desc: "The applicant must pay the application fee which is not refundable through credit card or debit card or net banking at an amount of INR 1,500.",
-                      },
-                      {
-                        step: "Step 5",
-                        title: "Selection Process:",
-                        desc: "If you have 80% or more in Class 12 (CBSE/ISC), you may get direct admission without an interview; otherwise, a Personal Interview (PI) will be scheduled.",
-                      },
-                      {
-                        step: "Step 6",
-                        title: "Check Status:",
-                        desc: "Regularly log in to your Admission Microsite to see if you have received an admission offer or if more documents are needed.",
-                      },
-                      {
-                        step: "Step 7",
-                        title: "Fee Payment:",
-                        desc: "Once selected, download your admission letter from the microsite and pay the first-semester fee to secure your seat.",
-                      },
-                    ].map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="relative z-10 flex items-start gap-10"
-                      >
-                        {/* Step Arrow Badge Component Applied to All Steps */}
-                        <div className="relative shrink-0">
+                  {[
+                    {
+                      step: "Step 1",
+                      title: "Online Application:",
+                      desc: "You need to go to the official Amity Mohali website and select the 'Apply Now 2026' option to begin your registration process.",
+                      active: true,
+                    },
+                    {
+                      step: "Step 2",
+                      title: "Registration & Login:",
+                      desc: "You need to create an account by using a valid email address and phone number to receive your individual Form Number and Password.",
+                    },
+                    {
+                      step: "Step 3",
+                      title: "Document Upload:",
+                      desc: "Applicants need to upload scanned copies of their Class 10 and 12mark sheet and a recent color passport-size photograph (3.5 x 4.5 cm).",
+                    },
+                    {
+                      step: "Step 4",
+                      title: "Application Fee:",
+                      desc: "The applicant must pay the application fee which is not refundable through credit card or debit card or net banking at an amount of INR 1,500.",
+                    },
+                    {
+                      step: "Step 5",
+                      title: "Selection Process:",
+                      desc: "If you have 80% or more in Class 12 (CBSE/ISC), you may get direct admission without an interview; otherwise, a Personal Interview (PI) will be scheduled.",
+                    },
+                    {
+                      step: "Step 6",
+                      title: "Check Status:",
+                      desc: "Regularly log in to your Admission Microsite to see if you have received an admission offer or if more documents are needed.",
+                    },
+                    {
+                      step: "Step 7",
+                      title: "Fee Payment:",
+                      desc: "Once selected, download your admission letter from the microsite and pay the first-semester fee to secure your seat.",
+                    },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="relative z-10 flex items-start gap-10"
+                    >
+                      {/* Step Arrow Badge Component Applied to All Steps */}
+                      <div className="relative shrink-0">
+                        <div
+                          className={`relative w-[76px] h-[34px] flex items-center justify-center text-[12px] font-bold pr-2 transition-all
+              ${item.active
+                              ? "bg-[#0D3B59] text-white shadow-md"
+                              : "bg-white text-[#0D3B59] border-y border-l border-gray-100"
+                            }`}
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)",
+                          }}
+                        >
+                          {item.step}
+                        </div>
+                        {/* Subtle Right Border for Inactive Arrows to define the point */}
+                        {!item.active && (
                           <div
-                            className={`relative w-[76px] h-[34px] flex items-center justify-center text-[12px] font-bold pr-2 transition-all
-              ${
-                item.active
-                  ? "bg-[#0D3B59] text-white shadow-md"
-                  : "bg-white text-[#0D3B59] border-y border-l border-gray-100"
-              }`}
+                            className="absolute inset-0 border-r border-gray-100 pointer-events-none"
                             style={{
                               clipPath:
-                                "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)",
+                                "polygon(85% 0%, 100% 50%, 85% 100%, 84% 100%, 99% 50%, 84% 0%)",
                             }}
-                          >
-                            {item.step}
-                          </div>
-                          {/* Subtle Right Border for Inactive Arrows to define the point */}
-                          {!item.active && (
-                            <div
-                              className="absolute inset-0 border-r border-gray-100 pointer-events-none"
-                              style={{
-                                clipPath:
-                                  "polygon(85% 0%, 100% 50%, 85% 100%, 84% 100%, 99% 50%, 84% 0%)",
-                              }}
-                            />
-                          )}
-                        </div>
-
-                        {/* Step Content */}
-                        <div className="flex flex-col gap-1.5 pt-0.5">
-                          <h3 className="text-[16px] font-bold text-[#111827]">
-                            {item.title}
-                          </h3>
-                          <p className="text-[14px] text-[#595959] leading-[1.6]">
-                            {item.desc}
-                          </p>
-                        </div>
+                          />
+                        )}
                       </div>
-                    ))}
-                  </div>
-                </div>
-                {/* --- Entrance Exams Accepted for BBA Section --- */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-6">
-                  <h2 className="text-[22px] font-bold text-[#121212] mb-4">
-                    Entrance Exams Accepted for BBA-
-                  </h2>
-                  <p className="text-[14px] text-[#595959] leading-[1.7] mb-6 font-normal">
-                    BBA program at Amity University Mohali uses national
-                    entrance exam results for admissions to discover exceptional
-                    candidates. The university operates a merit-based system for
-                    its undergraduate admissions process yet uses these test
-                    results as a crucial element during candidate selection.
-                  </p>
 
-                  <div className="flex flex-col gap-4 mb-10">
-                    {[
-                      {
-                        title: "CUET UG",
-                        desc: "The Common University Entrance Test serves as the main national examination which universities accept for BBA admissions.",
-                      },
-                      {
-                        title: "SAT",
-                        desc: "The College Board SAT test results are valid for admission by both international and domestic students.",
-                      },
-                      {
-                        title: "Personal Interview (PI)",
-                        desc: "All students who fail to meet direct admission requirements must complete the Personal Interview (PI) assessment which serves as their mandatory evaluation.",
-                      },
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <svg
-                          className="w-3 h-3 text-[#0D3B59] mt-1.5 shrink-0"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                        <p className="text-[14px] leading-[1.6] text-[#121212]">
-                          <span className="font-normal text-[#121212]">
-                            {item.title}:
-                          </span>{" "}
+                      {/* Step Content */}
+                      <div className="flex flex-col gap-1.5 pt-0.5">
+                        <h3 className="text-[16px] font-bold text-[#111827]">
+                          {item.title}
+                        </h3>
+                        <p className="text-[14px] text-[#595959] leading-[1.6]">
                           {item.desc}
                         </p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-                  {/* Expert Assist Banner */}
-                  <div className="bg-[#2D546E] rounded-2xl p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between min-h-[180px] shadow-lg">
-                    <div className="z-10 max-w-[60%]">
-                      <h3 className="text-white text-[22px] md:text-[26px] font-bold leading-tight mb-8">
-                        Ready to apply? Let an Amity University expert assist
-                        you.
+              {/* --- Entrance Exams Accepted for BBA Section --- */}
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)] mb-4 lg:mb-6">
+                <h2 className="text-[18px] lg:text-[22px] font-bold text-[#121212] mb-3 lg:mb-4">
+                  Entrance Exams Accepted for BBA-
+                </h2>
+                <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-4 lg:mb-6 font-normal">
+                  BBA program at Amity University Mohali uses national
+                  entrance exam results for admissions to discover exceptional
+                  candidates. The university operates a merit-based system for
+                  its undergraduate admissions process yet uses these test
+                  results as a crucial element during candidate selection.
+                </p>
+
+                <div className="flex flex-col gap-4 mb-10">
+                  {[
+                    {
+                      title: "CUET UG",
+                      desc: "The Common University Entrance Test serves as the main national examination which universities accept for BBA admissions.",
+                    },
+                    {
+                      title: "SAT",
+                      desc: "The College Board SAT test results are valid for admission by both international and domestic students.",
+                    },
+                    {
+                      title: "Personal Interview (PI)",
+                      desc: "All students who fail to meet direct admission requirements must complete the Personal Interview (PI) assessment which serves as their mandatory evaluation.",
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <svg
+                        className="w-3 h-3 text-[#0D3B59] mt-1.5 shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      <p className="text-[14px] leading-[1.6] text-[#121212]">
+                        <span className="font-normal text-[#121212]">
+                          {item.title}:
+                        </span>{" "}
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Expert Assist Banner — mobile: image | desktop: styled div */}
+                <div className="w-full">
+                  <div className="block md:hidden rounded-2xl overflow-hidden shadow-lg mt-6">
+                    <Image
+                      src="/assets/mobile.png"
+                      width={800}
+                      height={200}
+                      className="w-full h-auto object-cover"
+                      alt="Ready to apply? Let an Amity University expert assist you."
+                    />
+                  </div>
+                  <div className="hidden md:flex bg-[#2D546E] rounded-2xl p-8 relative overflow-hidden items-center justify-between min-h-[180px] shadow-lg mt-10">
+                    <div className="z-10 w-full md:max-w-[60%]">
+                      <h3 className="text-white md:text-[26px] font-bold leading-tight mb-8">
+                        Ready to apply? Let an Amity University expert assist you.
                       </h3>
                       <button className="bg-white text-[#0D3B59] px-8 py-2.5 rounded-lg font-bold text-[14px] hover:bg-gray-50 transition-all shadow-sm">
                         Connect Now
@@ -643,119 +650,111 @@ export default function UniversityPage() {
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* --- Amity University Mohali BBA Important Dates 2026 Section --- */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                  <h2 className="text-[22px] font-bold text-[#111827] mb-4">
-                    Amity University Mohali BBA Important Dates 2026-
-                  </h2>
-                  <p className="text-[14px] text-[#595959] leading-[1.7] mb-8 font-normal">
-                    Amity University Mohali BBA admission process operates
-                    through established time periods which enable a successful
-                    start of the academic year. Students need to monitor these
-                    specific times because they help students to meet all
-                    application deadlines.
-                  </p>
+              {/* --- Amity University Mohali BBA Important Dates 2026 Section --- */}
+              <div className="bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
+                <h2 className="text-[18px] lg:text-[22px] font-bold text-[#111827] mb-3 lg:mb-4">
+                  Amity University Mohali BBA Important Dates 2026-
+                </h2>
+                <p className="text-[13px] lg:text-[14px] text-[#595959] leading-[1.7] mb-6 lg:mb-8 font-normal">
+                  Amity University Mohali BBA admission process operates
+                  through established time periods which enable a successful
+                  start of the academic year. Students need to monitor these
+                  specific times because they help students to meet all
+                  application deadlines.
+                </p>
 
-                  {/* Important Dates Table: 50/50 Split */}
-                  <div className="overflow-hidden rounded-xl border border-gray-200">
-                    <table className="w-full text-left text-[14px] border-collapse table-fixed">
-                      <thead>
-                        <tr className="bg-[#0D3B59] text-white">
-                          <th className="w-1/2 px-6 py-4.5 font-bold border-r border-white/10 uppercase tracking-wide">
-                            Events
-                          </th>
-                          <th className="w-1/2 px-6 py-4.5 font-bold uppercase tracking-wide">
-                            Dates (Tentative)
-                          </th>
+                {/* Important Dates Table: 50/50 Split */}
+                <div className="overflow-x-auto w-full no-scrollbar rounded-xl border border-gray-200">
+                  <table className="w-full min-w-[500px] lg:min-w-full text-left text-[13px] lg:text-[14px] border-collapse table-fixed">
+                    <thead>
+                      <tr className="bg-[#0D3B59] text-white">
+                        <th className="w-1/2 px-6 py-4.5 font-bold border-r border-white/10 uppercase tracking-wide">
+                          Events
+                        </th>
+                        <th className="w-1/2 px-6 py-4.5 font-bold uppercase tracking-wide">
+                          Dates (Tentative)
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 text-[#111827]">
+                      {[
+                        { e: "Application Start Date", d: "November 2025" },
+                        { e: "Application Deadline", d: "January 30, 2026" },
+                        {
+                          e: "CUET UG Exam Dates",
+                          d: "May 11 – May 31, 2026",
+                        },
+                        { e: "Merit List Release", d: "June 2026" },
+                        { e: "Counselling Window", d: "July 2026" },
+                      ].map((row, i) => (
+                        <tr
+                          key={i}
+                          className="hover:bg-gray-50 transition-colors"
+                        >
+                          <td className="px-6 py-4 font-medium text-[#4b5563] border-r border-gray-200">
+                            {row.e}
+                          </td>
+                          <td className="px-6 py-4 font-medium text-[#4b5563]">
+                            {row.d}
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 text-[#111827]">
-                        {[
-                          { e: "Application Start Date", d: "November 2025" },
-                          { e: "Application Deadline", d: "January 30, 2026" },
-                          {
-                            e: "CUET UG Exam Dates",
-                            d: "May 11 – May 31, 2026",
-                          },
-                          { e: "Merit List Release", d: "June 2026" },
-                          { e: "Counselling Window", d: "July 2026" },
-                        ].map((row, i) => (
-                          <tr
-                            key={i}
-                            className="hover:bg-gray-50 transition-colors"
-                          >
-                            <td className="px-6 py-4 font-medium text-[#4b5563] border-r border-gray-200">
-                              {row.e}
-                            </td>
-                            <td className="px-6 py-4 font-medium text-[#4b5563]">
-                              {row.d}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            </div>
+            </div> {/* Close Left Column (flex-1) */}
 
             {/* RIGHT COLUMN: Sidebar */}
             <aside className="w-full lg:w-[340px] flex flex-col gap-6 sticky top-4">
-              {/* Ad/CTA Card */}
-              {/* Lorem ipsum Sidebar Card - Pixel Perfect Match */}
+              {/* Lorem ipsum Sidebar Card */}
               <div className="bg-white rounded-xl overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 w-full">
-                {/* Header Section */}
                 <div className="bg-[#2D546E] py-3 text-center">
                   <h4 className="text-white text-[15px] font-bold">
                     Lorem ipsum
                   </h4>
                 </div>
-
-                {/* Body Section */}
                 <div className="p-6 flex flex-col items-center text-center">
                   <p className="text-[13px] text-[#4b5563] leading-relaxed mb-6 font-medium max-w-[200px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   </p>
-
-                  {/* Apply Now Button */}
-                  <button className="bg-[#0D3B59] text-white px-8 py-2.5 rounded-lg font-bold text-[14px] hover:bg-[#092a40] transition-all active:scale-95 shadow-sm">
+                  <button className="bg-[#0D3B59] text-white px-8 py-2.5 rounded-lg font-bold text-[14px] hover:bg-[#092a40] transition-all shadow-sm">
                     Apply now
                   </button>
                 </div>
               </div>
 
-              {/* Sidebar: Explore Other Colleges - Pixel Perfect Match */}
-              <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-                <h3 className="text-[16px] font-bold text-[#111827] mb-6">
+              {/* Sidebar: Explore Other Colleges */}
+              <div className="bg-white rounded-xl p-4 lg:p-6 border border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
+                <h3 className="text-[15px] lg:text-[16px] font-bold text-[#111827] mb-4 lg:mb-6">
                   Explore other colleges-
                 </h3>
-
                 <div className="flex flex-col gap-6">
                   {[
                     {
                       name: "Alagappa University's Directorate of Distance Education",
                       loc: "Karaikudi, Tamil Nadu",
-                      img: "/assets/b1.png", // Insert image path
+                      img: "/assets/b1.png",
                       type: "location",
                     },
                     {
                       name: "Amity School of Distance Education",
                       loc: "Noida, New Delhi",
-                      img: "/assets/b2.png", // Insert image path
+                      img: "/assets/b2.png",
                       type: "location",
                     },
                     {
                       name: "Amity University Bengaluru",
                       loc: "Bengaluru, Karnataka",
-                      img: "/assets/b3.png", // Insert image path
+                      img: "/assets/b3.png",
                       type: "clock",
                     },
                     {
                       name: "Amity University Bengaluru",
                       loc: "Bengaluru, Karnataka",
-                      img: "/assets/b3.png", // Insert image path
+                      img: "/assets/b3.png",
                       type: "clock",
                     },
                   ].map((col, i) => (
@@ -763,7 +762,6 @@ export default function UniversityPage() {
                       key={i}
                       className="flex flex-col gap-3 group cursor-pointer border-b border-gray-50 pb-6 last:border-0 last:pb-0"
                     >
-                      {/* Image Container with Exact Radius */}
                       <div className="relative w-full h-[150px] rounded-2xl overflow-hidden shadow-sm bg-gray-100">
                         <Image
                           src={col.img}
@@ -772,52 +770,22 @@ export default function UniversityPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-
-                      {/* Content Section */}
                       <div className="px-1">
                         <h4 className="text-[14px] font-bold text-[#3B82B1] hover:text-[#1a2e4a] leading-[1.4] transition-colors line-clamp-2">
                           {col.name}
                         </h4>
-
                         <div className="flex items-center gap-1.5 mt-2">
-                          {/* Conditional Icon Logic */}
                           {col.type === "location" ? (
-                            <svg
-                              className="w-3.5 h-3.5 text-gray-400"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                              />
+                            <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                           ) : (
-                            <svg
-                              className="w-3.5 h-3.5 text-gray-400"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
+                            <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           )}
-                          <span className="text-[12px] font-medium text-gray-400">
-                            {col.loc}
-                          </span>
+                          <span className="text-[12px] font-medium text-gray-400">{col.loc}</span>
                         </div>
                       </div>
                     </div>
@@ -825,9 +793,9 @@ export default function UniversityPage() {
                 </div>
               </div>
             </aside>
-          </div>
-        </div>
-      </div>
+          </div> {/* Close flex-row */}
+        </div> {/* Close max-w */}
+      </div> {/* Close min-h-screen section bg */}
     </div>
   );
 }

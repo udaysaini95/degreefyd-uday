@@ -20,7 +20,6 @@ const navLinks = [
   { label: "Universities", href: "#" },
   { label: "Courses", href: "#" },
   { label: "More", href: "#" },
-  { label: "Regular", href: "#" },
 ];
 
 const UNIV_CATEGORIES = [
@@ -103,22 +102,28 @@ const POPULAR_UNIV = [
   },
 ];
 
-const POPULAR_UNIV_LIST = [
-  "LPU Online",
-  "CU Online",
-  "Manipal Online",
-  "Amity Online",
-  "Sikkim Manipal Online",
-  "VGU Online",
-  "Jain Online",
-  "NMIMS Online",
-  "Mangalyaan Online",
-  "Sharda Online",
-  "Shoolini Online",
-  "Symbiosis Online",
-  "Mangalyaan Online",
-  "Shoolini Online",
-  "Symbiosis Online"
+const POPULAR_UNIV_COLUMNS = [
+  [
+    "LPU Online",
+    "CU Online",
+    "Manipal Online",
+    "Amity Online",
+    "Sikkim Manipal Online",
+    "VGU Online",
+  ],
+  [
+    "Jain Online",
+    "NMIMS Online",
+    "Mangalyaan Online",
+    "Sharda Online",
+    "Shoolini Online",
+    "Symbiosis Online",
+  ],
+  [
+    "Mangalyaan Online",
+    "Shoolini Online",
+    "Symbiosis Online",
+  ],
 ];
 
 function BookOpenIcon() {
@@ -261,7 +266,7 @@ function UniversitiesMegaMenu({ closeMenu, onOpenCompare }: { closeMenu: () => v
     <div className="absolute top-full left-1/2 -translate-x-1/2  w-[1144px] bg-[#fafafa] rounded shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
       <div className="w-[300px] bg-white border-r border-gray-200 py-6 flex flex-col gap-0 shrink-0">
         <h3 className="text-[13px] font-bold text-gray-800 px-6 pb-2 mb-2 border-b border-gray-300">
-          Discover Top Universities
+          Discover Universities
         </h3>
 
         {UNIV_CATEGORIES.map((cat) => {
@@ -749,70 +754,33 @@ function UniversitiesMegaMenu({ closeMenu, onOpenCompare }: { closeMenu: () => v
         )}
 
         {activeTab === "popular" && (
-          <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-              <h4 className="font-bold text-[#1a2e4a] text-[16px]">
-                Trending Now
-              </h4>
-              <Link
-                href="#"
-                className="text-[#3B82B1] text-[13px] font-bold hover:underline flex items-center gap-1"
-                onClick={closeMenu}
-              >
-                View All Universities{" "}
-                <span className="text-[10px]">&rarr;</span>
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {POPULAR_UNIV.map((univ, i) => (
-                <Link
-                  key={i}
-                  href="#"
-                  onClick={closeMenu}
-                  className="group flex items-center gap-3 bg-gray-50/50 border border-gray-100 p-3 rounded-xl hover:bg-white hover:border-blue-100 hover:shadow-sm transition-all"
-                >
-                  <div className="w-12 h-12 bg-white border border-gray-100 rounded-lg flex items-center justify-center shrink-0 shadow-sm overflow-hidden relative p-1 group-hover:border-blue-100 transition-colors">
-                    <Image
-                      src={univ.logo}
-                      alt={univ.name}
-                      fill
-                      className="object-contain p-1"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.display =
-                          "none";
-                      }}
-                    />
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[13px] font-bold text-[#1a2e4a] group-hover:text-[#3B82B1] transition-colors truncate">
-                      {univ.name}
-                    </span>
-                    <span className="text-[11px] text-gray-500 truncate flex items-center gap-1 mt-0.5">
-                      <svg
-                        className="w-3 h-3 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      {univ.location}
-                    </span>
-                  </div>
-                </Link>
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-[#1a2e4a] text-[15px] border-b border-gray-200 pb-3">
+              Popular Universities
+            </h4>
+            <div className="grid grid-cols-3 gap-x-8 gap-y-0">
+              {POPULAR_UNIV_COLUMNS.map((col, colIdx) => (
+                <div key={colIdx} className="flex flex-col gap-4">
+                  {col.map((name, i) => (
+                    <Link
+                      key={i}
+                      href="/?view=colleges"
+                      onClick={closeMenu}
+                      className="text-[13px] text-gray-700 hover:text-[#3B82B1] transition-colors"
+                    >
+                      {name}
+                    </Link>
+                  ))}
+                </div>
               ))}
             </div>
+            <Link
+              href="/?view=colleges"
+              onClick={closeMenu}
+              className="text-[#3B82B1] text-[13px] font-medium hover:underline mt-1"
+            >
+              View More
+            </Link>
           </div>
         )}
 
@@ -1069,7 +1037,7 @@ function RegularMegaMenu({ closeMenu }: { closeMenu: () => void }) {
   ];
 
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[1144px] bg-[#fafafa] rounded shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+    <div className="w-[1144px] bg-[#fafafa] rounded shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
       <div className="w-[300px] bg-white border-r border-gray-200 py-6 flex flex-col gap-0 shrink-0">
         <h3 className="text-[13px] font-bold text-gray-800 px-6 pb-2 mb-2 border-b border-gray-300">
           Discover Regular Colleges and more
@@ -1343,58 +1311,60 @@ export default function Navbar() {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            example@degreefyd.com
+            <span className={poppins.className}>example@degreefyd.com</span>
           </div>
           <div className="flex items-center gap-3">
-            <span>Connect with us on your Favorite Socials -</span>
+            <span className={`${poppins.className} text-[#121212] font-normal`}>
+              example@degreefyd.com
+            </span>
             <div className="flex items-center gap-3.5">
               <Link
                 href="#"
-                className="text-gray-500 hover:text-gray-800 transition-colors"
+                className="text-gray-500 hover:opacity-80 transition-opacity flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                </svg>
+                <Image
+                  src="/assets/fac.png"
+                  alt="Facebook"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 object-contain"
+                />
               </Link>
               <Link
                 href="#"
-                className="text-gray-500 hover:text-gray-800 transition-colors"
+                className="text-gray-500 hover:opacity-80 transition-opacity flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
+                <Image
+                  src="/assets/ins.png"
+                  alt="Facebook"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 object-contain"
+                />
               </Link>
               <Link
                 href="#"
-                className="text-gray-500 hover:text-gray-800 transition-colors"
+                className="text-gray-500 hover:opacity-80 transition-opacity flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                </svg>
+                <Image
+                  src="/assets/lin.png"
+                  alt="LinkedIn"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 object-contain"
+                />
               </Link>
               <Link
                 href="#"
-                className="text-gray-500 hover:text-gray-800 transition-colors"
+                className="text-gray-500 hover:opacity-80 transition-opacity flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                </svg>
+                <Image
+                  src="/assets/you.png"
+                  alt="Facebook"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 object-contain"
+                />
               </Link>
             </div>
           </div>
@@ -1413,7 +1383,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1 h-full">
+          <nav className="hidden lg:flex items-center gap-1 h-full text-[#121212] font-normal">
             {navLinks.map((link) => (
               <div
                 key={link.label}
@@ -1484,22 +1454,51 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <button className="border border-[#CBD5E1] rounded-[10px] w-[42px] h-[42px] flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-500">
-              <svg
-                className="w-[18px] h-[18px]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.5}
-                viewBox="0 0 24 24"
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Regular dropdown - positioned next to search */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("Regular")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button
+                onClick={() => toggleDropdown("Regular")}
+                className={`${poppins.className} flex items-center gap-1 px-3 h-[38px] text-[14px] font-normal text-[#121212] border border-[#121212] rounded-[10px] hover:bg-gray-50 transition-colors duration-200`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"
-                />
-              </svg>
-            </button>
+                Regular
+                <svg
+                  className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openDropdown === "Regular" ? "rotate-180 text-black" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {openDropdown === "Regular" && (
+                <div className="absolute top-[calc(100%+4px)] right-0">
+                  <RegularMegaMenu closeMenu={() => setOpenDropdown(null)} />
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="#"
+              className="text-gray-500 hover:opacity-80 transition-opacity flex items-center justify-center"
+            >
+              <Image
+                src="/assets/sea.png"
+                alt="Facebook"
+                width={40}
+                height={40}
+                className="w-9 h-9 object-contain"
+              />
+            </Link>
 
             <Link
               href="/login"
@@ -1622,8 +1621,8 @@ export default function Navbar() {
                               setMobileMenuOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-colors ${mobileCatOpen === `univ-${cat.id}`
-                              ? "bg-blue-50"
-                              : "hover:bg-gray-100"
+                                ? "bg-blue-50"
+                                : "hover:bg-gray-100"
                               }`}
                           >
                             <div className="flex-1 min-w-0">
@@ -1647,8 +1646,8 @@ export default function Navbar() {
                               )
                             }
                             className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-colors ${mobileCatOpen === `univ-${cat.id}`
-                              ? "bg-blue-50"
-                              : "hover:bg-gray-100"
+                                ? "bg-blue-50"
+                                : "hover:bg-gray-100"
                               }`}
                           >
                             <div className="flex-1 min-w-0">
@@ -1663,8 +1662,8 @@ export default function Navbar() {
                             </div>
                             <svg
                               className={`w-4 h-4 shrink-0 transition-transform duration-200 ${mobileCatOpen === `univ-${cat.id}`
-                                ? "rotate-90 text-[#3B82B1]"
-                                : "text-gray-300"
+                                  ? "rotate-90 text-[#3B82B1]"
+                                  : "text-gray-300"
                                 }`}
                               fill="none"
                               viewBox="0 0 24 24"
@@ -1688,7 +1687,7 @@ export default function Navbar() {
                                   {LOCATION_LINKS.map((loc, i) => (
                                     <Link
                                       key={i}
-                                      href="#"
+                                      href="/?view=colleges"
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="flex flex-col items-center gap-1 border border-gray-200 rounded-xl p-2 hover:border-[#3B82B1] hover:bg-blue-50 transition-all"
                                     >
@@ -1712,7 +1711,7 @@ export default function Navbar() {
                                   ))}
                                 </div>
                                 <Link
-                                  href="#"
+                                  href="/?view=colleges"
                                   onClick={() => setMobileMenuOpen(false)}
                                   className="mt-3 block text-center text-[#3B82B1] text-[13px] font-semibold border border-gray-200 rounded-lg py-2 hover:bg-gray-50"
                                 >
@@ -1797,7 +1796,7 @@ export default function Navbar() {
                                 {POPULAR_UNIV.map((u, i) => (
                                   <Link
                                     key={i}
-                                    href="#"
+                                    href="/?view=colleges"
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="flex items-center gap-3 p-2.5 border border-gray-100 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all"
                                   >
@@ -1857,8 +1856,8 @@ export default function Navbar() {
                             )
                           }
                           className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-colors ${mobileCatOpen === `course-${cat.id}`
-                            ? "bg-blue-50"
-                            : "hover:bg-gray-100"
+                              ? "bg-blue-50"
+                              : "hover:bg-gray-100"
                             }`}
                         >
                           <div className="flex-1 min-w-0">
@@ -1873,8 +1872,8 @@ export default function Navbar() {
                           </div>
                           <svg
                             className={`w-4 h-4 shrink-0 transition-transform duration-200 ${mobileCatOpen === `course-${cat.id}`
-                              ? "rotate-90 text-blue-500"
-                              : "text-gray-300"
+                                ? "rotate-90 text-blue-500"
+                                : "text-gray-300"
                               }`}
                             fill="none"
                             viewBox="0 0 24 24"
@@ -2031,7 +2030,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      {isCompareModalOpen && <GlobalCompareModal onClose={() => setIsCompareModalOpen(false)} />}
+      {isCompareModalOpen && (
+        <GlobalCompareModal onClose={() => setIsCompareModalOpen(false)} />
+      )}
     </header>
   );
 }

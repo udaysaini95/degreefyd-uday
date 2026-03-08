@@ -247,7 +247,6 @@ export function CollegeModal({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="bg-transparent outline-none text-sm w-full text-gray-700 placeholder-gray-400"
-              autoFocus
             />
           </div>
         </div>
@@ -515,26 +514,28 @@ export default function CollegeComparator({
               )}
             </div>
 
-            {/* Expert Connect Banner - Shown below the main blocks */}
-            <div
-              className="mt-6 sm:mt-0 -mx-6 sm:mx-0 rounded-none sm:rounded-lg px-6 sm:px-8 py-8 sm:py-7 flex items-center justify-between overflow-hidden relative"
-              style={{ backgroundColor: "#284f67" }}
-            >
-              <div className="flex flex-col gap-4 sm:gap-5 z-10 w-[60%] sm:w-full max-w-md">
-                <h3 className="text-white text-[13.5px] sm:text-[21px] font-medium leading-[1.6] tracking-wide">
-                  Still Confused...? Let&apos;s Connect With
-                  <br className="block sm:hidden" /> Our Experts.
-                </h3>
-                <button className="bg-white text-[#254F6A] font-semibold sm:font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-md w-fit hover:bg-gray-100 transition-colors text-[13px] shadow-sm mt-1 sm:mt-0">
-                  Connect Now
-                </button>
-              </div>
-              <div className="absolute right-[-10px] bottom-0 w-[160px] h-[145px] sm:w-[220px] sm:h-[180px] z-10">
+            {/* Expert Connect Banner - Responsive Implementation */}
+            <div className="mt-6 sm:mt-0 -mx-6 sm:mx-0 rounded-none sm:rounded-lg overflow-hidden relative cursor-pointer">
+              {/* Desktop Banner */}
+              <div className="hidden sm:block w-full">
                 <Image
-                  src="/assets/3d.png"
-                  alt="Expert advisor"
-                  fill
-                  className="object-contain object-bottom scale-[1.10] sm:scale-110 origin-bottom"
+                  src="/assets/banner.png"
+                  alt="Still Confused? Connect With Our Experts"
+                  width={1200}
+                  height={200}
+                  layout="responsive"
+                  className="w-full h-auto"
+                />
+              </div>
+              {/* Mobile Banner */}
+              <div className="block sm:hidden w-full">
+                <Image
+                  src="/assets/mobile.png"
+                  alt="Still Confused? Connect With Our Experts"
+                  width={400}
+                  height={150}
+                  layout="responsive"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
