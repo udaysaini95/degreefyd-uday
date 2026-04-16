@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Reference Figma link Design -https://www.figma.com/proto/qHBpyInjVypLOGQMTUARaZ/Degreefyd-Website?page-id=7%3A17&node-id=3812-28518&viewport=-529%2C74%2C0.1&t=GnaaPwcfZchqpWtb-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=3801%3A25280
+
 First, run the development server:
 
 ```bash
